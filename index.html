@@ -613,6 +613,161 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/17/2017-03-17/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="glinlf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The heaven of glinlf">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/17/2017-03-17/" itemprop="url">
+                  Fri Mar 17 2017 00:00:00 GMT+0800 (中国标准时间)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-17T15:52:00+08:00">
+                2017-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python-知乎爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">python_知乎爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/17/2017-03-17/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/17/2017-03-17/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="python全局变量使用"><a href="#python全局变量使用" class="headerlink" title="python全局变量使用:"></a>python全局变量使用:</h1><ul>
+<li>1 可以直接定义一个globalvar.py文件；里面存放其他文件要使用的变量。在其他文件中导入:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">from src.globalvar import *</div><div class="line"># __author_=&quot;gLinlf&quot;</div><div class="line"># coding=utf-8</div><div class="line">import queue</div><div class="line"></div><div class="line"># 定义全局变量</div><div class="line"></div><div class="line"># 已经爬取得到所有url</div><div class="line">had_url = set()</div><div class="line"># 已经爬取解析用户的url</div><div class="line">had_used_url = set()</div><div class="line"># 用户关注的其他用户的url 使用队列（使用后删除）</div><div class="line">follow_url = queue.Queue(maxsize=0)</div><div class="line"># 爬虫入口</div><div class="line"># follow_url.put(&apos;https://www.zhihu.com/people/liaoxuefeng&apos;)</div><div class="line">follow_url.put(&apos;https://www.zhihu.com/people/competitionlaw&apos;)</div><div class="line"># 请求头</div><div class="line">header = &#123;</div><div class="line">    &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&apos;&#125;</div><div class="line"></div><div class="line"># 数据库名</div><div class="line">db_name = &apos;test&apos;</div><div class="line"></div><div class="line"># 抽样爬取不大于10个分页的用户(200人)（加快用户信息爬取速度！概率性减少 花费早爬取页面中存在较多已经爬去的用户url 的资源和时间。）</div><div class="line">max_page = int(10)</div><div class="line"></div><div class="line"># 异步IO请求解析的最大页码数</div><div class="line">max_parse_page = int(5)</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/16/2017-03-16/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -636,7 +791,7 @@
               
                 
                 <a class="post-title-link" href="/2017/03/16/2017-03-16/" itemprop="url">
-                  mongoengine操作mongodb的使用笔记
+                  Thu Mar 16 2017 00:00:00 GMT+0800 (中国标准时间)
                 </a>
               
             
@@ -662,6 +817,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mongodb/" itemprop="url" rel="index">
+                    <span itemprop="name">mongodb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -739,10 +916,14 @@ kwargs - 要传递到pymongo驱动程序的特定参数，例如maxpoolsize，tz
 </ul>
 <h1 id="mongoengine在python中的基本使用："><a href="#mongoengine在python中的基本使用：" class="headerlink" title="mongoengine在python中的基本使用："></a>mongoengine在python中的基本使用：</h1><h2 id="新增（save）"><a href="#新增（save）" class="headerlink" title="新增（save）"></a>新增（save）</h2><p>1创建py文件testmongo.py 类为TestCategories ，TestCategories类似存入mongodb数据库中的表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> import mongoengine</div><div class="line">class TestCategories(mongoengine.Document):</div><div class="line">    # 用户信息地址</div><div class="line">    user_url = mongoengine.StringField()</div><div class="line">    # 用户名</div><div class="line">    user_name = mongoengine.StringField()</div><div class="line">    # 用户居住所在地</div><div class="line">    user_locations = mongoengine.ListField()</div></pre></td></tr></table></figure></p>
 <p>  2 在另一个py文件创建一个测试文件 test.py:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    &gt;from src.testmogo import TestCategories</div><div class="line">    from mongoengine import *</div><div class="line">     connect(&apos;test&apos;)</div><div class="line">     cate = TestCategories()</div><div class="line">    cate.user_url = &apos;hello&apos;</div><div class="line">    cate.user_name= &apos;python&apos;</div><div class="line">    cate.user_locations = [&apos;llf&apos;]</div><div class="line">    cate.save()</div><div class="line"></div><div class="line"></div><div class="line">```    </div><div class="line">    </div><div class="line">3执行 test.py文件查看 数据库结果：</div><div class="line">    </div><div class="line">![](~/16-29-01.jpg)</div><div class="line"></div><div class="line">## 查询</div><div class="line"></div><div class="line">对于objects的到只是一个queryset类（QuerySet），这类里面有丰富的信息，存放所有查询到的 document对象（TestCategories）的list集合。可以使用for in list 语法将查询到的类对象里的数据灵活拼接成一个新的dict或list。</div><div class="line"></div><div class="line">参考：[Python中QuerySet和Objects类</div><div class="line">](http://www.cnblogs.com/snapeliu/p/4980994.html)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    &gt;from src.testmogo import TestCategories</div><div class="line">    from mongoengine import *</div><div class="line">     connect(&apos;test&apos;)</div><div class="line">     cate = TestCategories()</div><div class="line">    cate.user_url = &apos;hello&apos;</div><div class="line">    cate.user_name= &apos;python&apos;</div><div class="line">    cate.user_locations = [&apos;llf&apos;]</div><div class="line">    cate.save()</div><div class="line"></div><div class="line">```    </div><div class="line">    </div><div class="line">3执行 test.py文件查看 数据库结果：</div><div class="line">    </div><div class="line">![](~/16-29-01.jpg)</div><div class="line"></div><div class="line">## 查询</div><div class="line"></div><div class="line">对于objects的到只是一个queryset类（QuerySet），这类里面有丰富的信息，存放所有查询到的 document对象（TestCategories）的list集合。可以使用for in list 语法将查询到的类对象里的数据灵活拼接成一个新的dict或list。</div><div class="line"></div><div class="line">参考：[Python中QuerySet和Objects类</div><div class="line">](http://www.cnblogs.com/snapeliu/p/4980994.html)</div></pre></td></tr></table></figure>
 <p>obj = TestCategories.objects(user_url=’123’)</p>
 <h1 id=""><a href="#" class="headerlink" title=""></a><class 'mongoengine.queryset.queryset.queryset'=""></class></h1><p>print(type(obj))</p>
-<h1 id="-1"><a href="#-1" class="headerlink" title="[, ]"></a>[<testcategories: testcategories="" object="">, <testcategories: testcategories="" object="">]</testcategories:></testcategories:></h1><p>print(obj)<br>for i in obj:<br>    print(i.user_url)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 更新</div><div class="line">安装 django的web框架后  有update（）等方法。</div><div class="line"></div><div class="line">            obj = TestCategories.objects(user_url=&apos;123&apos;)获得的就是对应的document。</div><div class="line">            obj.user_url = &apos;321&apos;</div><div class="line">            obj.update()</div><div class="line">            </div><div class="line">常规更新：</div></pre></td></tr></table></figure></p>
+<h1 id="-1"><a href="#-1" class="headerlink" title="[, ]"></a>[<testcategories: testcategories="" object="">, <testcategories: testcategories="" object="">]</testcategories:></testcategories:></h1><p>print(obj)<br>for i in obj:<br>    print(i.user_url)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 更新</div><div class="line">安装 django的web框架后  有update（）等方法。</div></pre></td></tr></table></figure></p>
+<pre><code>obj = TestCategories.objects(user_url=&apos;123&apos;)获得的就是对应的document。
+obj.user_url = &apos;321&apos;
+obj.update()
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">常规更新：</div></pre></td></tr></table></figure>
 <p>obj = TestCategories.objects(user_url=’123’)</p>
 <h1 id="-2"><a href="#-2" class="headerlink" title=""></a><class 'mongoengine.queryset.queryset.queryset'=""></class></h1><p>print(type(obj))</p>
 <h1 id="-3"><a href="#-3" class="headerlink" title="[, ]"></a>[<testcategories: testcategories="" object="">, <testcategories: testcategories="" object="">]</testcategories:></testcategories:></h1><p>print(obj)<br>for i in obj:<br>    print(i.user_url)</p>
@@ -829,7 +1010,7 @@ i.save()
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -840,7 +1021,7 @@ i.save()
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -851,7 +1032,7 @@ i.save()
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

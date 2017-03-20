@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="mongoengine,mongodb," />
+  <meta name="keywords" content="mongodb,mongoengine," />
 
 
 
@@ -102,7 +102,7 @@ mongoengine.connect（db = None，alias =’default’，** kwargs ）
 
 2.1如果使用的时本地连接，则由’db’参数指定的数据库，直接">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mongoengine操作mongodb的使用笔记">
+<meta property="og:title" content="Thu Mar 16 2017 00:00:00 GMT+0800 (中国标准时间)">
 <meta property="og:url" content="http://yoursite.com/2017/03/16/2017-03-16/index.html">
 <meta property="og:site_name" content="The heaven of glinlf">
 <meta property="og:description" content="mongoengine操作mongodb的使用笔记参见mongoengine文档
@@ -119,9 +119,9 @@ mongoengine.connect（db = None，alias =’default’，** kwargs ）
 
 
 2.1如果使用的时本地连接，则由’db’参数指定的数据库，直接">
-<meta property="og:updated_time" content="2017-03-20T03:35:29.230Z">
+<meta property="og:updated_time" content="2017-03-20T07:19:35.031Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mongoengine操作mongodb的使用笔记">
+<meta name="twitter:title" content="Thu Mar 16 2017 00:00:00 GMT+0800 (中国标准时间)">
 <meta name="twitter:description" content="mongoengine操作mongodb的使用笔记参见mongoengine文档
 1 安装mongoengine
 
@@ -169,7 +169,7 @@ mongoengine.connect（db = None，alias =’default’，** kwargs ）
 
 
 
-  <title> mongoengine操作mongodb的使用笔记 | The heaven of glinlf </title>
+  <title> Thu Mar 16 2017 00:00:00 GMT+0800 (中国标准时间) | The heaven of glinlf </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -381,7 +381,7 @@ mongoengine.connect（db = None，alias =’default’，** kwargs ）
             
             
               
-                mongoengine操作mongodb的使用笔记
+                Thu Mar 16 2017 00:00:00 GMT+0800 (中国标准时间)
               
             
           </h1>
@@ -406,6 +406,28 @@ mongoengine.connect（db = None，alias =’default’，** kwargs ）
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mongodb/" itemprop="url" rel="index">
+                    <span itemprop="name">mongodb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -481,10 +503,14 @@ kwargs - 要传递到pymongo驱动程序的特定参数，例如maxpoolsize，tz
 </ul>
 <h1 id="mongoengine在python中的基本使用："><a href="#mongoengine在python中的基本使用：" class="headerlink" title="mongoengine在python中的基本使用："></a>mongoengine在python中的基本使用：</h1><h2 id="新增（save）"><a href="#新增（save）" class="headerlink" title="新增（save）"></a>新增（save）</h2><p>1创建py文件testmongo.py 类为TestCategories ，TestCategories类似存入mongodb数据库中的表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> import mongoengine</div><div class="line">class TestCategories(mongoengine.Document):</div><div class="line">    # 用户信息地址</div><div class="line">    user_url = mongoengine.StringField()</div><div class="line">    # 用户名</div><div class="line">    user_name = mongoengine.StringField()</div><div class="line">    # 用户居住所在地</div><div class="line">    user_locations = mongoengine.ListField()</div></pre></td></tr></table></figure></p>
 <p>  2 在另一个py文件创建一个测试文件 test.py:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    &gt;from src.testmogo import TestCategories</div><div class="line">    from mongoengine import *</div><div class="line">     connect(&apos;test&apos;)</div><div class="line">     cate = TestCategories()</div><div class="line">    cate.user_url = &apos;hello&apos;</div><div class="line">    cate.user_name= &apos;python&apos;</div><div class="line">    cate.user_locations = [&apos;llf&apos;]</div><div class="line">    cate.save()</div><div class="line"></div><div class="line"></div><div class="line">```    </div><div class="line">    </div><div class="line">3执行 test.py文件查看 数据库结果：</div><div class="line">    </div><div class="line">![](~/16-29-01.jpg)</div><div class="line"></div><div class="line">## 查询</div><div class="line"></div><div class="line">对于objects的到只是一个queryset类（QuerySet），这类里面有丰富的信息，存放所有查询到的 document对象（TestCategories）的list集合。可以使用for in list 语法将查询到的类对象里的数据灵活拼接成一个新的dict或list。</div><div class="line"></div><div class="line">参考：[Python中QuerySet和Objects类</div><div class="line">](http://www.cnblogs.com/snapeliu/p/4980994.html)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    &gt;from src.testmogo import TestCategories</div><div class="line">    from mongoengine import *</div><div class="line">     connect(&apos;test&apos;)</div><div class="line">     cate = TestCategories()</div><div class="line">    cate.user_url = &apos;hello&apos;</div><div class="line">    cate.user_name= &apos;python&apos;</div><div class="line">    cate.user_locations = [&apos;llf&apos;]</div><div class="line">    cate.save()</div><div class="line"></div><div class="line">```    </div><div class="line">    </div><div class="line">3执行 test.py文件查看 数据库结果：</div><div class="line">    </div><div class="line">![](~/16-29-01.jpg)</div><div class="line"></div><div class="line">## 查询</div><div class="line"></div><div class="line">对于objects的到只是一个queryset类（QuerySet），这类里面有丰富的信息，存放所有查询到的 document对象（TestCategories）的list集合。可以使用for in list 语法将查询到的类对象里的数据灵活拼接成一个新的dict或list。</div><div class="line"></div><div class="line">参考：[Python中QuerySet和Objects类</div><div class="line">](http://www.cnblogs.com/snapeliu/p/4980994.html)</div></pre></td></tr></table></figure>
 <p>obj = TestCategories.objects(user_url=’123’)</p>
 <h1 id=""><a href="#" class="headerlink" title=""></a><class 'mongoengine.queryset.queryset.queryset'=""></class></h1><p>print(type(obj))</p>
-<h1 id="-1"><a href="#-1" class="headerlink" title="[, ]"></a>[<testcategories: testcategories="" object="">, <testcategories: testcategories="" object="">]</testcategories:></testcategories:></h1><p>print(obj)<br>for i in obj:<br>    print(i.user_url)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 更新</div><div class="line">安装 django的web框架后  有update（）等方法。</div><div class="line"></div><div class="line">            obj = TestCategories.objects(user_url=&apos;123&apos;)获得的就是对应的document。</div><div class="line">            obj.user_url = &apos;321&apos;</div><div class="line">            obj.update()</div><div class="line">            </div><div class="line">常规更新：</div></pre></td></tr></table></figure></p>
+<h1 id="-1"><a href="#-1" class="headerlink" title="[, ]"></a>[<testcategories: testcategories="" object="">, <testcategories: testcategories="" object="">]</testcategories:></testcategories:></h1><p>print(obj)<br>for i in obj:<br>    print(i.user_url)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 更新</div><div class="line">安装 django的web框架后  有update（）等方法。</div></pre></td></tr></table></figure></p>
+<pre><code>obj = TestCategories.objects(user_url=&apos;123&apos;)获得的就是对应的document。
+obj.user_url = &apos;321&apos;
+obj.update()
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">常规更新：</div></pre></td></tr></table></figure>
 <p>obj = TestCategories.objects(user_url=’123’)</p>
 <h1 id="-2"><a href="#-2" class="headerlink" title=""></a><class 'mongoengine.queryset.queryset.queryset'=""></class></h1><p>print(type(obj))</p>
 <h1 id="-3"><a href="#-3" class="headerlink" title="[, ]"></a>[<testcategories: testcategories="" object="">, <testcategories: testcategories="" object="">]</testcategories:></testcategories:></h1><p>print(obj)<br>for i in obj:<br>    print(i.user_url)</p>
@@ -521,9 +547,9 @@ i.save()
       
         <div class="post-tags">
           
-            <a href="/Tags/mongoengine/" rel="tag"># mongoengine</a>
-          
             <a href="/Tags/mongodb/" rel="tag"># mongodb</a>
+          
+            <a href="/Tags/mongoengine/" rel="tag"># mongoengine</a>
           
         </div>
       
@@ -542,8 +568,8 @@ i.save()
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/19/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/17/2017-03-17/" rel="prev" title="Fri Mar 17 2017 00:00:00 GMT+0800 (中国标准时间)">
+                Fri Mar 17 2017 00:00:00 GMT+0800 (中国标准时间) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -623,7 +649,7 @@ i.save()
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -634,7 +660,7 @@ i.save()
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -645,7 +671,7 @@ i.save()
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
