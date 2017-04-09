@@ -89,12 +89,12 @@
 
 <meta name="description" content="心之所向 步履维艰">
 <meta property="og:type" content="website">
-<meta property="og:title" content="The heaven of glinlf">
+<meta property="og:title" content="管弦丝竹，余音袅袅">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="The heaven of glinlf">
+<meta property="og:site_name" content="管弦丝竹，余音袅袅">
 <meta property="og:description" content="心之所向 步履维艰">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The heaven of glinlf">
+<meta name="twitter:title" content="管弦丝竹，余音袅袅">
 <meta name="twitter:description" content="心之所向 步履维艰">
 
 
@@ -129,7 +129,7 @@
 
 
 
-  <title> The heaven of glinlf </title>
+  <title> 管弦丝竹，余音袅袅 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -185,7 +185,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">The heaven of glinlf</span>
+        <span class="site-title">管弦丝竹，余音袅袅</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -322,6 +322,313 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/python/flask/2017-03-22/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="glinlf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/22/python/flask/2017-03-22/" itemprop="url">
+                  flask get/post参数获取
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T15:25:00+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/flask/" itemprop="url" rel="index">
+                    <span itemprop="name">flask</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/python/flask/2017-03-22/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/22/python/flask/2017-03-22/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="flask-使用笔记"><a href="#flask-使用笔记" class="headerlink" title="flask 使用笔记"></a>flask 使用笔记</h1><h2 id="获得get和post-提交的参数"><a href="#获得get和post-提交的参数" class="headerlink" title="获得get和post 提交的参数"></a>获得get和post 提交的参数</h2><p>post 提交参数获取<br>request.form[‘xxx’]  其类型为：ImmutableMultiDict<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@app.route(&quot;/deleteInfo&quot;, methods=[&apos;post&apos;])</div><div class="line">@allow_cross_domain</div><div class="line">def delete_info():</div><div class="line">    print(type(request.form))</div><div class="line">    # &lt; class &apos;werkzeug.datastructures.ImmutableMultiDict&apos;&gt;</div><div class="line">    _id = request.form[&quot;_id&quot;]</div></pre></td></tr></table></figure></p>
+<p>get 提交参数获取<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@app.route(&apos;/queryDetl&apos;)</div><div class="line">@allow_cross_domain</div><div class="line">def query_detail():</div><div class="line">    _id = request.args.get(&quot;_id&quot;)</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/python/flask/2017-03-21/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="glinlf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/21/python/flask/2017-03-21/" itemprop="url">
+                  解决Flask 跨域请求问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T17:59:00+08:00">
+                2017-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/21/python/flask/2017-03-21/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/21/python/flask/2017-03-21/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="python-flask-跨域访问装饰器实现"><a href="#python-flask-跨域访问装饰器实现" class="headerlink" title="python flask 跨域访问装饰器实现"></a>python flask 跨域访问装饰器实现</h1><p>现在大多数的web项目都已经是前后端分离；一般纯的api接口需要考虑跨域访问问题 下面是简单的跨域访问装饰器在flask中的实现（其他语言web项目跨域处理方法类似）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">from functools import wraps</div><div class="line">from flask import make_response</div><div class="line"></div><div class="line"></div><div class="line">def allow_cross_domain(fun):</div><div class="line">    @wraps(fun)</div><div class="line">    def wrapper_fun(*args, **kwargs):</div><div class="line">        rst = make_response(fun(*args, **kwargs))</div><div class="line">        rst.headers[&apos;Access-Control-Allow-Origin&apos;] = &apos;*&apos;</div><div class="line">        rst.headers[&apos;Access-Control-Allow-Methods&apos;] = &apos;PUT,GET,POST,DELETE&apos;</div><div class="line">        allow_headers = &quot;Referer,Accept,Origin,User-Agent&quot;</div><div class="line">        rst.headers[&apos;Access-Control-Allow-Headers&apos;] = allow_headers</div><div class="line">        return rst</div><div class="line">    return wrapper_fun</div><div class="line"></div><div class="line">@app.route(&apos;/hosts/&apos;)</div><div class="line">@allow_cross_domain</div><div class="line">def domains():</div><div class="line">    pass</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/20/my-first-hexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -331,7 +638,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The heaven of glinlf">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
     </span>
 
     
@@ -461,7 +768,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The heaven of glinlf">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
     </span>
 
     
@@ -613,7 +920,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/17/2017-03-17/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/18/spider/2017-03-18/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="glinlf">
@@ -622,7 +929,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The heaven of glinlf">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
     </span>
 
     
@@ -635,8 +942,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/17/2017-03-17/" itemprop="url">
-                  Fri Mar 17 2017 00:00:00 GMT+0800 (中国标准时间)
+                <a class="post-title-link" href="/2017/03/18/spider/2017-03-18/" itemprop="url">
+                  如何使用grequests 异步IO批量请求
                 </a>
               
             
@@ -652,8 +959,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-17T15:52:00+08:00">
-                2017-03-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-18T10:33:00+08:00">
+                2017-03-18
               </time>
             
 
@@ -675,8 +982,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python-知乎爬虫/" itemprop="url" rel="index">
-                    <span itemprop="name">python_知乎爬虫</span>
+                  <a href="/categories/spider/" itemprop="url" rel="index">
+                    <span itemprop="name">spider</span>
                   </a>
                 </span>
 
@@ -693,8 +1000,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/17/2017-03-17/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/17/2017-03-17/" itemprop="commentCount">0</span> comments
+                <a href="/2017/03/18/spider/2017-03-18/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/18/spider/2017-03-18/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -722,10 +1029,41 @@
       
         
           
-            <h1 id="python全局变量使用"><a href="#python全局变量使用" class="headerlink" title="python全局变量使用:"></a>python全局变量使用:</h1><ul>
-<li>1 可以直接定义一个globalvar.py文件；里面存放其他文件要使用的变量。在其他文件中导入:</li>
+            <h1 id="python-grequests-库的使用记录"><a href="#python-grequests-库的使用记录" class="headerlink" title="python grequests 库的使用记录"></a>python grequests 库的使用记录</h1><ul>
+<li><p>简介：</p>
+<p>   对于大名鼎鼎的request库相信大家都已经非常熟悉了，不过他有个不好的缺点就是阻塞性IO，在你使用request.get()获取所需要的网页时，除非这个网页下载完成，不然不能进行对新网页的获取；而cup的处理速度远比IO读写的速度快多了，为了充分利用cpu，加快网页爬取速度，这里讲介绍使用异步IO获取网页的grequests库的使用。这两个库都是 <a href="https://github.com/kennethreitz/grequests" target="_blank" rel="external">kennethreitz</a>开发的，用法非常相似。</p>
+</li>
+<li><p>安装install<br><code>pip install grequests</code></p>
+</li>
+<li><p>基础用法</p>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">from src.globalvar import *</div><div class="line"># __author_=&quot;gLinlf&quot;</div><div class="line"># coding=utf-8</div><div class="line">import queue</div><div class="line"></div><div class="line"># 定义全局变量</div><div class="line"></div><div class="line"># 已经爬取得到所有url</div><div class="line">had_url = set()</div><div class="line"># 已经爬取解析用户的url</div><div class="line">had_used_url = set()</div><div class="line"># 用户关注的其他用户的url 使用队列（使用后删除）</div><div class="line">follow_url = queue.Queue(maxsize=0)</div><div class="line"># 爬虫入口</div><div class="line"># follow_url.put(&apos;https://www.zhihu.com/people/liaoxuefeng&apos;)</div><div class="line">follow_url.put(&apos;https://www.zhihu.com/people/competitionlaw&apos;)</div><div class="line"># 请求头</div><div class="line">header = &#123;</div><div class="line">    &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&apos;&#125;</div><div class="line"></div><div class="line"># 数据库名</div><div class="line">db_name = &apos;test&apos;</div><div class="line"></div><div class="line"># 抽样爬取不大于10个分页的用户(200人)（加快用户信息爬取速度！概率性减少 花费早爬取页面中存在较多已经爬去的用户url 的资源和时间。）</div><div class="line">max_page = int(10)</div><div class="line"></div><div class="line"># 异步IO请求解析的最大页码数</div><div class="line">max_parse_page = int(5)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#要爬取的url集合</div><div class="line">urls = [</div><div class="line">         url = &apos;https://www.zhihu.com/people/excited-vczh/following&apos;,</div><div class="line">         url = &apos;https://www.zhihu.com/people/liaoxuefeng/following&apos;,</div><div class="line">         url = &apos;https://www.zhihu.com/people/hellolin-30/following&apos;</div><div class="line">]</div><div class="line"></div><div class="line">#同时将上述请求发送</div><div class="line">rs = (grequests.get(u) for u in urls)</div><div class="line"></div><div class="line">#查看发送请求的响应状态码和响应结果：</div><div class="line">        respond_html=[]</div><div class="line">        for resp in grequests.map(rs, exception_handler=exception_handler):</div><div class="line">            # grequests.map可以查看异步io么一个请求返回的状态码200 500</div><div class="line">            # print(&apos;status:&#123;0&#125; url:&#123;1&#125;&apos;.format(resp, resp.url))</div><div class="line">            if resp is not None:</div><div class="line">                respond_html.append(resp.text)</div><div class="line">            else:</div><div class="line">                continue</div></pre></td></tr></table></figure>
+<ul>
+<li>异常的处理</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">def exception_handler(request, exception):</div><div class="line">    print(&apos;got exception request: &#123;0&#125;, exception &#123;1&#125;&apos;.format(request, exception))</div></pre></td></tr></table></figure>
+<ul>
+<li><p>异步IO实际运用效果的反思：</p>
+<pre><code> a.原本毕设在做一个基于python的知乎用户信息特征爬虫系统的，为了加快爬取速度思考使用异步IO，主要思路：                  
+1 对用户信息的的请求入口使用异步IO（grequests）请求多个url地址        
+ 2 每一个用户关注人又有多个分页，对分页进行异步IO请求。
+ 原先未使用grequests库，由于阻塞IO的影响，每次只能爬取一个用户信息，再爬取每一用户第一页下的关注人url地址（实际未爬全所有该用户关注的用户）；速度爬取相对较快；使用grequests后去爬取某个用户所有分页下的关注人url后，速度开始变慢，主要原因是：在爬取这个用户后，接着要全部爬完和解析所有分页的html（基本爬全所有关注的用户）；比如某个用户关注上万人，系统爬取该用户下所有关注人都要耗费大把时间。所以异步IO提速还需要看实际的运用情况和环境。比如本身网络带宽限制，机器硬件限制等等都会影响到整体的速度。
+ b.爬取过程的问题：
+ 虽然该系统只是爬取用户的关注人，不爬取被关注人信息。所以不存在关注和被关注的关系，当是存在 多个人关注同一个人的情况，所以如果爬取所有每个人的关注人，仍然存在爬取了很多重复性爬过的过户，特别是爬取解析分页网页（某个用户关注人特别多的情况）；耗费资源时间却做很多无用功。
+个人解决方法：控制爬取的分页数（实际爬去的分页数还需算法和大数据理论支撑），概率性爬取关注人的url（分页下）。存在多人关注同一人的关系便存在概率性爬取到此用户的可能。
+ 缺点：部分概率爬取不到关注用户；爬取的用户数据不全。
+</code></pre><h2 id="grequets使用代理"><a href="#grequets使用代理" class="headerlink" title="grequets使用代理"></a>grequets使用代理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">proxies = &#123;&apos;http&apos;: &apos;http://219.148.108.126:8998&apos;&#125;</div><div class="line">s = (grequests.get(u, proxies=proxies) for u in urls)</div></pre></td></tr></table></figure>
+</li>
+<li><p>参考</p>
+<ul>
+<li><a href="https://pypi.python.org/pypi/grequests" target="_blank" rel="external">https://pypi.python.org/pypi/grequests</a></li>
+<li><a href="https://github.com/kennethreitz/grequests" target="_blank" rel="external">https://github.com/kennethreitz/grequests</a></li>
+<li><a href="http://blog.upeoe.com/2016/11/24/how-to-use-grequest/" target="_blank" rel="external">http://blog.upeoe.com/2016/11/24/how-to-use-grequest/</a></li>
+</ul>
+</li>
+</ul>
+
           
         
       
@@ -768,7 +1106,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/16/2017-03-16/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/17/python/2017-03-17/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="glinlf">
@@ -777,7 +1115,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The heaven of glinlf">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
     </span>
 
     
@@ -790,8 +1128,167 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/16/2017-03-16/" itemprop="url">
-                  Thu Mar 16 2017 00:00:00 GMT+0800 (中国标准时间)
+                <a class="post-title-link" href="/2017/03/17/python/2017-03-17/" itemprop="url">
+                  python全局变量
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-17T15:52:00+08:00">
+                2017-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/17/python/2017-03-17/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/17/python/2017-03-17/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="python全局变量使用"><a href="#python全局变量使用" class="headerlink" title="python全局变量使用:"></a>python全局变量使用:</h1><ul>
+<li>1 可以直接定义一个globalvar.py文件；里面存放其他文件要使用的变量。在其他文件中导入:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">from src.globalvar import *</div><div class="line"># __author_=&quot;gLinlf&quot;</div><div class="line"># coding=utf-8</div><div class="line">import queue</div><div class="line"></div><div class="line"># 定义全局变量</div><div class="line"></div><div class="line"># 已经爬取得到所有url</div><div class="line">had_url = set()</div><div class="line"># 已经爬取解析用户的url</div><div class="line">had_used_url = set()</div><div class="line"># 用户关注的其他用户的url 使用队列（使用后删除）</div><div class="line">follow_url = queue.Queue(maxsize=0)</div><div class="line"># 爬虫入口</div><div class="line"># follow_url.put(&apos;https://www.zhihu.com/people/liaoxuefeng&apos;)</div><div class="line">follow_url.put(&apos;https://www.zhihu.com/people/competitionlaw&apos;)</div><div class="line"># 请求头</div><div class="line">header = &#123;</div><div class="line">    &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&apos;&#125;</div><div class="line"></div><div class="line"># 数据库名</div><div class="line">db_name = &apos;test&apos;</div><div class="line"></div><div class="line"># 抽样爬取不大于10个分页的用户(200人)（加快用户信息爬取速度！概率性减少 花费早爬取页面中存在较多已经爬去的用户url 的资源和时间。）</div><div class="line">max_page = int(10)</div><div class="line"></div><div class="line"># 异步IO请求解析的最大页码数</div><div class="line">max_parse_page = int(5)</div></pre></td></tr></table></figure>
+<ul>
+<li>2使用global关键字声明</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/16/mongodb/2017-03-16/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="glinlf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/16/mongodb/2017-03-16/" itemprop="url">
+                  mongodbengine 使用记录
                 </a>
               
             
@@ -848,8 +1345,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/16/2017-03-16/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/16/2017-03-16/" itemprop="commentCount">0</span> comments
+                <a href="/2017/03/16/mongodb/2017-03-16/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/16/mongodb/2017-03-16/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -898,7 +1395,7 @@
 <ul>
 <li>2.2如果数据库不在localhost的默认端口上运行，也可以在此处提供连接设置(如果需要验证，请提供用户名和密码参数。)：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongoengine.register_connection（alias，name = None，host = None，port =       None，read_preference = Primary（），username = None，password = None，authentication_source = None，authentication_mechanism = None，** kwargs ）</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongoengine.register_connection（alias，name = None，host = None，port =       None，read_preference = Primary（），username = None，password = None，authentication_source = None，authentication_mechanism = None，** kwargs ）</div></pre></td></tr></table></figure>
 <ul>
 <li><p>参数：    </p>
 <pre><code>alias - 将用于在MongoEngine中引用此连接的名称
@@ -914,24 +1411,272 @@ is_mock - 明确使用mongomock进行连接（也可以使用mongomock：//作�
 kwargs - 要传递到pymongo驱动程序的特定参数，例如maxpoolsize，tz_aware等。有关完整列表，请参阅pymongo的MongoClient文档。
 </code></pre></li>
 </ul>
-<h1 id="mongoengine在python中的基本使用："><a href="#mongoengine在python中的基本使用：" class="headerlink" title="mongoengine在python中的基本使用："></a>mongoengine在python中的基本使用：</h1><h2 id="新增（save）"><a href="#新增（save）" class="headerlink" title="新增（save）"></a>新增（save）</h2><p>1创建py文件testmongo.py 类为TestCategories ，TestCategories类似存入mongodb数据库中的表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> import mongoengine</div><div class="line">class TestCategories(mongoengine.Document):</div><div class="line">    # 用户信息地址</div><div class="line">    user_url = mongoengine.StringField()</div><div class="line">    # 用户名</div><div class="line">    user_name = mongoengine.StringField()</div><div class="line">    # 用户居住所在地</div><div class="line">    user_locations = mongoengine.ListField()</div></pre></td></tr></table></figure></p>
-<p>  2 在另一个py文件创建一个测试文件 test.py:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    &gt;from src.testmogo import TestCategories</div><div class="line">    from mongoengine import *</div><div class="line">     connect(&apos;test&apos;)</div><div class="line">     cate = TestCategories()</div><div class="line">    cate.user_url = &apos;hello&apos;</div><div class="line">    cate.user_name= &apos;python&apos;</div><div class="line">    cate.user_locations = [&apos;llf&apos;]</div><div class="line">    cate.save()</div><div class="line"></div><div class="line">```    </div><div class="line">    </div><div class="line">3执行 test.py文件查看 数据库结果：</div><div class="line">    </div><div class="line">![](~/16-29-01.jpg)</div><div class="line"></div><div class="line">## 查询</div><div class="line"></div><div class="line">对于objects的到只是一个queryset类（QuerySet），这类里面有丰富的信息，存放所有查询到的 document对象（TestCategories）的list集合。可以使用for in list 语法将查询到的类对象里的数据灵活拼接成一个新的dict或list。</div><div class="line"></div><div class="line">参考：[Python中QuerySet和Objects类</div><div class="line">](http://www.cnblogs.com/snapeliu/p/4980994.html)</div></pre></td></tr></table></figure>
-<p>obj = TestCategories.objects(user_url=’123’)</p>
-<h1 id=""><a href="#" class="headerlink" title=""></a><class 'mongoengine.queryset.queryset.queryset'=""></class></h1><p>print(type(obj))</p>
-<h1 id="-1"><a href="#-1" class="headerlink" title="[, ]"></a>[<testcategories: testcategories="" object="">, <testcategories: testcategories="" object="">]</testcategories:></testcategories:></h1><p>print(obj)<br>for i in obj:<br>    print(i.user_url)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 更新</div><div class="line">安装 django的web框架后  有update（）等方法。</div></pre></td></tr></table></figure></p>
+<h1 id="mongoengine在python中的基本使用："><a href="#mongoengine在python中的基本使用：" class="headerlink" title="mongoengine在python中的基本使用："></a>mongoengine在python中的基本使用：</h1><h2 id="新增（save）"><a href="#新增（save）" class="headerlink" title="新增（save）"></a>新增（save）</h2><ul>
+<li><p>创建py文件testmongo.py 类为TestCategories ，TestCategories类似存入mongodb数据库中的表：</p>
+<pre><code>import mongoengine
+class TestCategories(mongoengine.Document):
+    # 用户信息地址
+    user_url = mongoengine.StringField()
+    # 用户名
+    user_name = mongoengine.StringField()
+    # 用户居住所在地
+    user_locations = mongoengine.ListField()
+</code></pre></li>
+</ul>
+<ul>
+<li><p>在另一个py文件创建一个测试文件 test.py:</p>
+<pre><code>from src.testmogo import TestCategories
+from mongoengine import *
+connect(&apos;test&apos;)
+cate = TestCategories()
+cate.user_url = &apos;hello&apos;
+cate.user_name= &apos;python&apos;
+cate.user_locations = [&apos;llf&apos;]
+cate.save()
+</code></pre></li>
+<li><p>执行 test.py文件查看 数据库结果：</p>
+</li>
+</ul>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>对于objects的到只是一个queryset类（QuerySet），这类里面有丰富的信息，存放所有查询到的 document对象（TestCategories）的list集合。可以使用for in list 语法将查询到的类对象里的数据灵活拼接成一个新的dict或list。</p>
+<p>参考：<a href="http://www.cnblogs.com/snapeliu/p/4980994.html" target="_blank" rel="external">Python中QuerySet和Objects类
+</a></p>
+<pre><code>obj = TestCategories.objects(user_url=&apos;123&apos;)
+#&lt;class &apos;mongoengine.queryset.queryset.QuerySet&apos;&gt;
+print(type(obj))
+#&lt;TestCategories:TestCategoriesobject&gt;
+print(obj)
+for i in obj:
+    print(i.user_url)
+</code></pre><h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>安装 django的web框架后  有update（）等方法。</p>
 <pre><code>obj = TestCategories.objects(user_url=&apos;123&apos;)获得的就是对应的document。
 obj.user_url = &apos;321&apos;
 obj.update()
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">常规更新：</div></pre></td></tr></table></figure>
-<p>obj = TestCategories.objects(user_url=’123’)</p>
-<h1 id="-2"><a href="#-2" class="headerlink" title=""></a><class 'mongoengine.queryset.queryset.queryset'=""></class></h1><p>print(type(obj))</p>
-<h1 id="-3"><a href="#-3" class="headerlink" title="[, ]"></a>[<testcategories: testcategories="" object="">, <testcategories: testcategories="" object="">]</testcategories:></testcategories:></h1><p>print(obj)<br>for i in obj:<br>    print(i.user_url)</p>
-<pre><code># 直接操作 i（TestCategories）对象 ，修改对应的字段值，更新！
-i.user_name = &apos;xx&apos;
-i.save()
-</code></pre><p>```</p>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2>
+</code></pre><p>常规更新：</p>
+<pre><code>obj = TestCategories.objects(user_url=&apos;123&apos;)
+#&lt;class &apos;mongoengine.queryset.queryset.QuerySet&apos;&gt;
+print(type(obj))
+#[&lt;TestCategories: TestCategories object&gt;, &lt;TestCategories: TestCategories object&gt;]
+print(obj)
+for obj in objs:
+    print(obj.user_url)
+    # 直接操作 obj（TestCategories）对象 ，修改对应的字段值，更新！
+    obj.user_name = &apos;xx&apos;
+    obj.save()
+</code></pre><h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/13/spider/2017-03-13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="glinlf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/13/spider/2017-03-13/" itemprop="url">
+                  How to use selenium
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-13T17:24:00+08:00">
+                2017-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spider/" itemprop="url" rel="index">
+                    <span itemprop="name">spider</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/13/spider/2017-03-13/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/13/spider/2017-03-13/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="python-异步爬取库selenium使用记录"><a href="#python-异步爬取库selenium使用记录" class="headerlink" title="python 异步爬取库selenium使用记录"></a>python 异步爬取库selenium使用记录</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li>1 在做基于python的知乎用户信息特征爬虫系统中，遇到了个人信息需要点击 查看详细资料后 页面才能渲染出所有我所需要的用户信息。对于基于异步请求的动态网页爬虫，在研究了相关资料后发现这个暴力牛逼的包selenium，相对简单实用。简单来说就是模拟人为对浏览器的动作，比如：点击事件，填写表单等。这样就能克服操作我们传统爬虫只能爬取静态网页，得不到异步请求渲染后的网页信息。具体安装如下：<h2 id="安装selenium（python3-5，window10环境下）"><a href="#安装selenium（python3-5，window10环境下）" class="headerlink" title="安装selenium（python3.5，window10环境下）"></a>安装selenium（python3.5，window10环境下）</h2></li>
+<li>1.通过pip安装</li>
+</ul>
+<blockquote>
+<p>pip install selenium</p>
+</blockquote>
+<ul>
+<li><p>2.通过下载selenium安装包</p>
+<p>  <a href="https://pypi.python.org/pypi/selenium" target="_blank" rel="external">selenium连接</a><br><a href="https://pypi.python.org/pypi/selenium" target="_blank" rel="external">https://pypi.python.org/pypi/selenium</a><br>解压，cmd进入目录：<br>E:\selenium\selenium2.53.5&gt; python3 setup.py install</p>
+</li>
+</ul>
+<h2 id="安装浏览器驱动chromedriver（以google为例）"><a href="#安装浏览器驱动chromedriver（以google为例）" class="headerlink" title="安装浏览器驱动chromedriver（以google为例）"></a>安装浏览器驱动chromedriver（以google为例）</h2><ul>
+<li><p>1.下载Chromedriver</p>
+<p>  下载地址：<a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="external">http://chromedriver.storage.googleapis.com/index.html</a><br>  注意：先查看notes.txt，Chromedriver版本和浏览器版本一定要对应。否者会出现各种异常报错。</p>
+</li>
+</ul>
+<p><img src="http://oo4xlamjr.bkt.clouddn.com/19-26-28.jpg" alt=""></p>
+<ul>
+<li><p>2.解压chromedriver.zip文件<br>将里面的chromedriver.exe文件拷贝到谷歌浏览器的安装目录下：</p>
+<p>  C:\Program Files (x86)\Google\Chrome\Application</p>
+</li>
+<li><p>3.配置环境变量</p>
+<blockquote>
+<p>打开:我的电脑-&gt;属性-&gt;高级系统设置-&gt;环境变量<br> 打开path<br>在最后面添加 ;C:\Program Files (x86)\Google\Chrome\Application</p>
+</blockquote>
+</li>
+<li><ol>
+<li><p>测试</p>
+<p>打开python编辑器 如pyCharm 编辑代码：</p>
+<blockquote>
+<p>chromedriver = “C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe”<br>os.environ[“webdriver.chrome.driver”] = chromedriver<br>driver = webdriver.Chrome(chromedriver)<br>driver.get(‘<a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a>‘)</p>
+</blockquote>
+<p>如果跳出google浏览器，且为百度页面则安装成功。不知道为什么其他博客只需要：</p>
+<blockquote>
+<p> driver = webdriver.Chrome()<br>driver.get(‘<a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a>‘)</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<p>便能成功。而且我环境变量也已经配置。不知道啥原因，有待研究下。</p>
+<h1 id="———————————————————————————————"><a href="#———————————————————————————————" class="headerlink" title="———————————————————————————————"></a>———————————————————————————————</h1><h1 id="selenium使用记录"><a href="#selenium使用记录" class="headerlink" title="selenium使用记录"></a>selenium使用记录</h1><h2 id="模拟知乎登录（具体使用查看文档）"><a href="#模拟知乎登录（具体使用查看文档）" class="headerlink" title="模拟知乎登录（具体使用查看文档）"></a>模拟知乎登录（<a href="http://selenium-python.readthedocs.io/index.html" target="_blank" rel="external">具体使用查看文档</a>）</h2><ul>
+<li>引用链接：<br><a href="https://www.zhihu.com/question/46528604?sort=created" target="_blank" rel="external">https://www.zhihu.com/question/46528604?sort=created</a></li>
+</ul>
+<ul>
+<li><p>###a先实例化一个driver</p>
+<blockquote>
+<p>chrome_driver = “C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe”</p>
+<pre><code>os.environ[&quot;webdriver.chrome.driver&quot;] = chrome_driver
+driver = webdriver.Chrome(chrome_driver)
+</code></pre></blockquote>
+</li>
+<li><p>###b 登录知乎，亲自测试可行：</p>
+<blockquote>
+<p>driver.get(“<a href="http://www.zhihu.com" target="_blank" rel="external">http://www.zhihu.com</a>“)       #打开知乎我们要登录<br>time.sleep(2)                            #让操作稍微停一下<br>driver.find_element_by_link_text(‘登录’).click() #找到‘登录’按钮并点击<br>time.sleep(2) # 找到输入账号的框，并自动输入账号 这里要替换为你的登录账号<br>driver.find_element_by_name(‘account’).send_keys(‘你的账号’)<br>time.sleep(2)# 密码，这里要替换为你的密码<br>driver.find_element_by_name(‘password’).send_keys(‘你的密码’)<br>time.sleep(2)# 输入浏览器中显示的验证码，这里如果知乎让你找烦人的倒立汉字，手动登录一下，再停止程序，退出#浏览器，然后重新启动程序，直到让你输入验证码<br>yanzhengma=input(‘验证码:’) #现在好像不需要验证码<br>driver.find_element_by_name(‘captcha’).send_keys(yanzhengma) # 找到登录按钮，并点击<br>driver.find_element_by_css_selector(‘div.button-wrapper.command &gt; button’).click()</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>###c 使用driver.page_source 可以获得实际操作后的页面源码。而requests库只能获得打开连接的静态网页。<br>如：html = driver.page_source<br>接下来就可以使用BeautifulSoup库来自由操作了。</li>
+</ul>
+
           
         
       
@@ -1010,7 +1755,7 @@ i.save()
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1021,7 +1766,7 @@ i.save()
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1032,7 +1777,7 @@ i.save()
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
