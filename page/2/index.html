@@ -322,6 +322,246 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/16/mongodb/2017-03-16/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="glinlf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/16/mongodb/2017-03-16/" itemprop="url">
+                  mongodbengine 使用记录
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-16T16:08:00+08:00">
+                2017-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mongodb/" itemprop="url" rel="index">
+                    <span itemprop="name">mongodb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/16/mongodb/2017-03-16/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/16/mongodb/2017-03-16/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="mongoengine操作mongodb的使用笔记"><a href="#mongoengine操作mongodb的使用笔记" class="headerlink" title="mongoengine操作mongodb的使用笔记"></a>mongoengine操作mongodb的使用笔记</h1><h3 id="参见mongoengine文档"><a href="#参见mongoengine文档" class="headerlink" title="参见mongoengine文档"></a><a href="http://docs.mongoengine.org/" target="_blank" rel="external">参见mongoengine文档</a></h3><ul>
+<li>1 安装mongoengine</li>
+</ul>
+<blockquote>
+<p>pip install -U mongoengine</p>
+</blockquote>
+<ul>
+<li>2 在python3.5中创建连接</li>
+</ul>
+<blockquote>
+<p>mongoengine.connect（db = None，alias =’default’，** kwargs ）</p>
+</blockquote>
+<ul>
+<li>2.1如果使用的时本地连接，则由’db’参数指定的数据库，直接连接数据库例如：</li>
+</ul>
+<blockquote>
+<p>mongoengine.connect(‘testdb’)</p>
+</blockquote>
+<ul>
+<li>2.2如果数据库不在localhost的默认端口上运行，也可以在此处提供连接设置(如果需要验证，请提供用户名和密码参数。)：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongoengine.register_connection（alias，name = None，host = None，port =       None，read_preference = Primary（），username = None，password = None，authentication_source = None，authentication_mechanism = None，** kwargs ）</div></pre></td></tr></table></figure>
+<ul>
+<li><p>参数：    </p>
+<pre><code>alias - 将用于在MongoEngine中引用此连接的名称
+name - 要使用的特定数据库的名称
+host - 要连接的mongod实例的主机名
+port - mongod实例正在运行的端口
+read_preference - 集合的读取首选项**添加pymongo 2.1
+username - 要进行身份验证的用户名
+密码 - 要验证的密码
+authentication_source - 要进行身份验证的数据库
+authentication_mechanism - 数据库认证机制。默认情况下，对MongoDB 3.0及更高版本使用SCRAM-SHA-1，对较旧的服务器使用MONGODB-CR（MongoDB Challenge Response协议）。
+is_mock - 明确使用mongomock进行连接（也可以使用mongomock：//作为db主机前缀）
+kwargs - 要传递到pymongo驱动程序的特定参数，例如maxpoolsize，tz_aware等。有关完整列表，请参阅pymongo的MongoClient文档。
+</code></pre></li>
+</ul>
+<h1 id="mongoengine在python中的基本使用："><a href="#mongoengine在python中的基本使用：" class="headerlink" title="mongoengine在python中的基本使用："></a>mongoengine在python中的基本使用：</h1><h2 id="新增（save）"><a href="#新增（save）" class="headerlink" title="新增（save）"></a>新增（save）</h2><ul>
+<li><p>创建py文件testmongo.py 类为TestCategories ，TestCategories类似存入mongodb数据库中的表：</p>
+<pre><code>import mongoengine
+class TestCategories(mongoengine.Document):
+    # 用户信息地址
+    user_url = mongoengine.StringField()
+    # 用户名
+    user_name = mongoengine.StringField()
+    # 用户居住所在地
+    user_locations = mongoengine.ListField()
+</code></pre></li>
+</ul>
+<ul>
+<li><p>在另一个py文件创建一个测试文件 test.py:</p>
+<pre><code>from src.testmogo import TestCategories
+from mongoengine import *
+connect(&apos;test&apos;)
+cate = TestCategories()
+cate.user_url = &apos;hello&apos;
+cate.user_name= &apos;python&apos;
+cate.user_locations = [&apos;llf&apos;]
+cate.save()
+</code></pre></li>
+<li><p>执行 test.py文件查看 数据库结果：</p>
+</li>
+</ul>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>对于objects的到只是一个queryset类（QuerySet），这类里面有丰富的信息，存放所有查询到的 document对象（TestCategories）的list集合。可以使用for in list 语法将查询到的类对象里的数据灵活拼接成一个新的dict或list。</p>
+<p>参考：<a href="http://www.cnblogs.com/snapeliu/p/4980994.html" target="_blank" rel="external">Python中QuerySet和Objects类
+</a></p>
+<pre><code>obj = TestCategories.objects(user_url=&apos;123&apos;)
+#&lt;class &apos;mongoengine.queryset.queryset.QuerySet&apos;&gt;
+print(type(obj))
+#&lt;TestCategories:TestCategoriesobject&gt;
+print(obj)
+for i in obj:
+    print(i.user_url)
+</code></pre><h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>安装 django的web框架后  有update（）等方法。</p>
+<pre><code>obj = TestCategories.objects(user_url=&apos;123&apos;)获得的就是对应的document。
+obj.user_url = &apos;321&apos;
+obj.update()
+</code></pre><p>常规更新：</p>
+<pre><code>obj = TestCategories.objects(user_url=&apos;123&apos;)
+#&lt;class &apos;mongoengine.queryset.queryset.QuerySet&apos;&gt;
+print(type(obj))
+#[&lt;TestCategories: TestCategories object&gt;, &lt;TestCategories: TestCategories object&gt;]
+print(obj)
+for obj in objs:
+    print(obj.user_url)
+    # 直接操作 obj（TestCategories）对象 ，修改对应的字段值，更新！
+    obj.user_name = &apos;xx&apos;
+    obj.save()
+</code></pre><h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/13/spider/2017-03-13/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -576,7 +816,7 @@ driver = webdriver.Chrome(chrome_driver)
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -587,7 +827,7 @@ driver = webdriver.Chrome(chrome_driver)
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -598,7 +838,7 @@ driver = webdriver.Chrome(chrome_driver)
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
