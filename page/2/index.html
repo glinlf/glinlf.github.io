@@ -90,7 +90,7 @@
 <meta name="description" content="心之所向 步履维艰">
 <meta property="og:type" content="website">
 <meta property="og:title" content="管弦丝竹，余音袅袅">
-<meta property="og:url" content="http://yoursite.com/archives/2017/05/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="管弦丝竹，余音袅袅">
 <meta property="og:description" content="心之所向 步履维艰">
 <meta name="twitter:card" content="summary">
@@ -123,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2017/05/"/>
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
 
 
 
 
 
-  <title> 归档 | 管弦丝竹，余音袅袅 </title>
+  <title> 管弦丝竹，余音袅袅 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -172,7 +172,9 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -309,103 +311,228 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+  <section id="posts" class="posts-expand">
+    
+      
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 11 篇日志。 继续努力。
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/13/spider/2017-03-13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="glinlf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
     </span>
 
     
+      <header class="post-header">
 
-      
-      
-      
-
-      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/13/spider/2017-03-13/" itemprop="url">
+                  How to use selenium
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-13T17:24:00+08:00">
+                2017-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spider/" itemprop="url" rel="index">
+                    <span itemprop="name">spider</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/13/spider/2017-03-13/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/13/spider/2017-03-13/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2017/05/09/java/collection/2017-05-09/" itemprop="url">
-              
-                <span itemprop="name">java集合汇总</span>
-              
-            </a>
+          
+            <h1 id="python-异步爬取库selenium使用记录"><a href="#python-异步爬取库selenium使用记录" class="headerlink" title="python 异步爬取库selenium使用记录"></a>python 异步爬取库selenium使用记录</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li>1 在做基于python的知乎用户信息特征爬虫系统中，遇到了个人信息需要点击 查看详细资料后 页面才能渲染出所有我所需要的用户信息。对于基于异步请求的动态网页爬虫，在研究了相关资料后发现这个暴力牛逼的包selenium，相对简单实用。简单来说就是模拟人为对浏览器的动作，比如：点击事件，填写表单等。这样就能克服操作我们传统爬虫只能爬取静态网页，得不到异步请求渲染后的网页信息。具体安装如下：<h2 id="安装selenium（python3-5，window10环境下）"><a href="#安装selenium（python3-5，window10环境下）" class="headerlink" title="安装selenium（python3.5，window10环境下）"></a>安装selenium（python3.5，window10环境下）</h2></li>
+<li>1.通过pip安装</li>
+</ul>
+<blockquote>
+<p>pip install selenium</p>
+</blockquote>
+<ul>
+<li><p>2.通过下载selenium安装包</p>
+<p>  <a href="https://pypi.python.org/pypi/selenium" target="_blank" rel="external">selenium连接</a><br><a href="https://pypi.python.org/pypi/selenium" target="_blank" rel="external">https://pypi.python.org/pypi/selenium</a><br>解压，cmd进入目录：<br>E:\selenium\selenium2.53.5&gt; python3 setup.py install</p>
+</li>
+</ul>
+<h2 id="安装浏览器驱动chromedriver（以google为例）"><a href="#安装浏览器驱动chromedriver（以google为例）" class="headerlink" title="安装浏览器驱动chromedriver（以google为例）"></a>安装浏览器驱动chromedriver（以google为例）</h2><ul>
+<li><p>1.下载Chromedriver</p>
+<p>  下载地址：<a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="external">http://chromedriver.storage.googleapis.com/index.html</a><br>  注意：先查看notes.txt，Chromedriver版本和浏览器版本一定要对应。否者会出现各种异常报错。</p>
+</li>
+</ul>
+<p><img src="http://oo4xlamjr.bkt.clouddn.com/19-26-28.jpg" alt=""></p>
+<ul>
+<li><p>2.解压chromedriver.zip文件<br>将里面的chromedriver.exe文件拷贝到谷歌浏览器的安装目录下：</p>
+<p>  C:\Program Files (x86)\Google\Chrome\Application</p>
+</li>
+<li><p>3.配置环境变量</p>
+<blockquote>
+<p>打开:我的电脑-&gt;属性-&gt;高级系统设置-&gt;环境变量<br> 打开path<br>在最后面添加 ;C:\Program Files (x86)\Google\Chrome\Application</p>
+</blockquote>
+</li>
+<li><ol>
+<li><p>测试</p>
+<p>打开python编辑器 如pyCharm 编辑代码：</p>
+<blockquote>
+<p>chromedriver = “C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe”<br>os.environ[“webdriver.chrome.driver”] = chromedriver<br>driver = webdriver.Chrome(chromedriver)<br>driver.get(‘<a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a>‘)</p>
+</blockquote>
+<p>如果跳出google浏览器，且为百度页面则安装成功。不知道为什么其他博客只需要：</p>
+<blockquote>
+<p> driver = webdriver.Chrome()<br>driver.get(‘<a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a>‘)</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<p>便能成功。而且我环境变量也已经配置。不知道啥原因，有待研究下。</p>
+<h1 id="———————————————————————————————"><a href="#———————————————————————————————" class="headerlink" title="———————————————————————————————"></a>———————————————————————————————</h1><h1 id="selenium使用记录"><a href="#selenium使用记录" class="headerlink" title="selenium使用记录"></a>selenium使用记录</h1><h2 id="模拟知乎登录（具体使用查看文档）"><a href="#模拟知乎登录（具体使用查看文档）" class="headerlink" title="模拟知乎登录（具体使用查看文档）"></a>模拟知乎登录（<a href="http://selenium-python.readthedocs.io/index.html" target="_blank" rel="external">具体使用查看文档</a>）</h2><ul>
+<li>引用链接：<br><a href="https://www.zhihu.com/question/46528604?sort=created" target="_blank" rel="external">https://www.zhihu.com/question/46528604?sort=created</a></li>
+</ul>
+<ul>
+<li><p>###a先实例化一个driver</p>
+<blockquote>
+<p>chrome_driver = “C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe”</p>
+<pre><code>os.environ[&quot;webdriver.chrome.driver&quot;] = chrome_driver
+driver = webdriver.Chrome(chrome_driver)
+</code></pre></blockquote>
+</li>
+<li><p>###b 登录知乎，亲自测试可行：</p>
+<blockquote>
+<p>driver.get(“<a href="http://www.zhihu.com" target="_blank" rel="external">http://www.zhihu.com</a>“)       #打开知乎我们要登录<br>time.sleep(2)                            #让操作稍微停一下<br>driver.find_element_by_link_text(‘登录’).click() #找到‘登录’按钮并点击<br>time.sleep(2) # 找到输入账号的框，并自动输入账号 这里要替换为你的登录账号<br>driver.find_element_by_name(‘account’).send_keys(‘你的账号’)<br>time.sleep(2)# 密码，这里要替换为你的密码<br>driver.find_element_by_name(‘password’).send_keys(‘你的密码’)<br>time.sleep(2)# 输入浏览器中显示的验证码，这里如果知乎让你找烦人的倒立汉字，手动登录一下，再停止程序，退出#浏览器，然后重新启动程序，直到让你输入验证码<br>yanzhengma=input(‘验证码:’) #现在好像不需要验证码<br>driver.find_element_by_name(‘captcha’).send_keys(yanzhengma) # 找到登录按钮，并点击<br>driver.find_element_by_css_selector(‘div.button-wrapper.command &gt; button’).click()</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>###c 使用driver.page_source 可以获得实际操作后的页面源码。而requests库只能获得打开连接的静态网页。<br>如：html = driver.page_source<br>接下来就可以使用BeautifulSoup库来自由操作了。</li>
+</ul>
+
+          
         
-      </h1>
+      
+    </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-09T15:32:00+08:00"
-              content="2017-05-09" >
-          05-09
-        </time>
-      </div>
+    <div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </article>
 
 
-
     
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/08/java/2017-05-08/" itemprop="url">
-              
-                <span itemprop="name">java对象转型</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-08T19:22:00+08:00"
-              content="2017-05-08" >
-          05-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
   </section>
 
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 
@@ -608,12 +735,6 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
-
 
   
 
