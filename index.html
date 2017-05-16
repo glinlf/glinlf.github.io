@@ -322,6 +322,165 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/14/java/JVM/2017-05-14-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="glinlf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/14/java/JVM/2017-05-14-1/" itemprop="url">
+                  JVM概况了解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-14T17:54:00+08:00">
+                2017-05-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JVM/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/14/java/JVM/2017-05-14-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/05/14/java/JVM/2017-05-14-1/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="JVM了解学习"><a href="#JVM了解学习" class="headerlink" title="JVM了解学习"></a>JVM了解学习</h1><p>   Java程序的跨平台特性主要是指字节码文件可以在任何具有Java虚拟机的计算机或者电子设备上运行，Java虚拟机中的Java解释器负责将字节码文件解释成为特定的机器码进行运行。因此在运行时，Java源程序需要通过编译器编译成为.class文件。众所周知java.exe是Java class文件的执行程序，但实际上java.exe程序只是一个执行的外壳，它会装载jvm.dll（windows下，下皆以windows平台为例，Linux下和solaris下其实类似，为：libjvm.so），这个动态连接库才是java虚拟机的实际操作处理所在。<br>    JVM是JRE的一部分。它是一个虚构出来的计算机，是通过在实际的计算机上仿真模拟各种计算机功能来实现的。JVM有自己完善的硬件架构，如处理器、堆栈、寄存器等，还具有相应的指令系统。Java语言最重要的特点就是跨平台运行。使用JVM就是为了支持与操作系统无关，实现跨平台。所以，JAVA虚拟机JVM是属于JRE的，而现在我们安装JDK时也附带安装了JRE(当然也可以单独安装JRE)。</p>
+<p>JVM = 类加载器 classloader + 执行引擎 execution engine + 运行时数据区域 runtime data areaclassloader 把硬盘上的class 文件加载到JVM中的运行时数据区域, 但是它不负责这个类文件能否执行，而这个是 执行引擎 负责的。</p>
+<p>##类加载器：<br>作用：装载.class文件classloader 有两种装载class的方式 （时机）：<br>隐式：运行过程中，碰到new方式生成对象时，隐式调用classLoader到JVM<br>显式：通过class.forname()动态加载<br>类加载器 classloader 是具有层次结构的，也就是父子关系。其中，Bootstrap 是所有类加载器的父亲。这个类加载器不是用 java 语言写的，而是用 C/C++ 写的。</p>
+<p>##执行引擎：<br>作用： 执行字节码，或者执行本地方法</p>
+<p>##运行时数据区：主要包括：<br>   Java虚拟机栈：java 虚拟机栈也是线程私有的。每一个 JVM 线程都有自己的 java 虚拟机栈，这个栈与线程同时创建，它的生命周期与线程相同。虚拟机栈描述的是Java 方法执行的内存模型：每个方法被执行的时候都会同时创建一个栈帧（Stack Frame）用于存储局部变量表、操作数栈、动态链接、方法出口等信息。每一个方法被调用直至执行完成的过程就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程<br>    本地方法栈：与虚拟机栈的作用相似，虚拟机栈为虚拟机执行执行java方法服务，而本地方法栈则为虚拟机使用到的本地方法服务。<br>    java堆：被所有线程共享的一块存储区域，在虚拟机启动时创建，它是JVM用来存储对象实例以及数组值的区域，可以认为Java中所有通过new创建的对象的内存都在此分配。（JVM将Heap分为两块：新生代New Generation和旧生代Old Generation），<br>    PC程序计数器：一块较小的内存空间，可以看做是当前线程所执行的字节码的行号指示器, NAMELY存储每个线程下一步将执行的JVM指令，如该方法为native的，则PC寄存器中不存储任何信息。Java 的多线程机制离不开程序计数器，每个线程都有一个自己的PC，以便完成不同线程上下文环境的切换。<br>    方法区：方法区和堆区域一样，是各个线程共享的内存区域，它用于存储每一个类的结构信息，例如运行时常量池，成员变量和方法数据，构造函数和普通函数的字节码内容，还包括一些在类、实例、接口初始化时用到的特殊方法。当开发人员在程序中通过Class对象中的getName、isInstance等方法获取信息时，这些数据都来自方法区。<br>    运行时常量池：（其空间从方法区中分配，存放的为类中固定的常量信息、方法和域的引用信息）<br>参见个人学习整理的<a href="">JVM运行时数据区域总结</a></p>
+<p>##垃圾回收机制GC。<br>垃圾回收机制是由垃圾收集器Garbage Collection GC来实现的，GC是后台的守护进程。垃圾回收是一种动态存储管理技术，它自动地释放不再被程序引用的对象，按照特定的垃圾收集算法来实现资源自动回收的功能。当一个对象不再被引用的时候，内存回收它占领的空间，以便空间被后来的新对象使用，以免造成内存泄露。<br><a href="">参考个人GC学习总结</a></p>
+<p><a href="https://segmentfault.com/a/1190000002579346" target="_blank" rel="external">JVM 的 工作原理，层次结构 以及 GC工作原理</a><br><a href="http://www.cnblogs.com/gw811/archive/2012/10/18/2730117.html" target="_blank" rel="external">Java内存管理：深入Java内存区域</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/11/hibernate/2017-05-11/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -532,6 +691,170 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/10/java/java数据类型/2017-05-10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="glinlf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/10/java/java数据类型/2017-05-10/" itemprop="url">
+                  java的基本数据类型和引用类型
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-10T11:48:00+08:00">
+                2017-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/10/java/java数据类型/2017-05-10/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/05/10/java/java数据类型/2017-05-10/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="java的基本数据类型和引用类型"><a href="#java的基本数据类型和引用类型" class="headerlink" title="java的基本数据类型和引用类型"></a>java的基本数据类型和引用类型</h1><p>   基本类型：简单数据类型是不能简化的、内置的数据类型、由编程语言本身定义，它表示了真实的数字、字符和整数。<br>　引用数据类型：Java语言本身不支持C++中的结构（struct）或联合（union）数据类型，它的复合数据类型一般都是通过类或接口进行构造，类提供了捆绑数据和方法的方式，同时可以针对程序外部进行信息隐藏</p>
+<h2 id="一、8种基本基本数据类型（分布尔类型和数值类型）。"><a href="#一、8种基本基本数据类型（分布尔类型和数值类型）。" class="headerlink" title="一、8种基本基本数据类型（分布尔类型和数值类型）。"></a>一、8种基本基本数据类型（分布尔类型和数值类型）。</h2><p>1、4种整型<br>    byte       1字节           -128——127<br>    short      2 字节         -32,768 —— 32,767<br>    int          4 字节          -2,147,483,648 ——            2,147,483,647（超过20亿）<br>    long       8 字节  -9,223,372,036,854,775,808——9,223,372,036854,775,807<br>    注释：java中所有的数据类所占据的字节数量与平台无关，java也没有任何无符号类型<br>2、 2种浮点类型<br>    float      4 字节         32位IEEE 754单精度（有效位数 6 – 7位）<br>    double   8 字节         64位IEEE 754双精度（有效位数15位）<br>3、1种Unicode编码的字符单元<br>    char      2 字节          整个Unicode字符集<br>4、1种真值类型<br>   boolean    1 位             true或者false </p>
+<p>##二、种引用类型<br>类class<br>接口interface<br>数组array </p>
+<p>##三、Java数据类型在内存中的存储：<br>  给变量赋值前需要先确定变量的类型，确定了变量的类型，即确定了数据需分配内存空间的大小，数据在内存的存储方式。<br>1）基本数据类型的存储原理：所有的简单数据类型不存在“引用”的概念，基本数据类型都是直接存储在内存中的内存栈上的，数据本身的值就是存储在栈空间里面，而Java语言里面八种数据类型是这种存储模型；</p>
+<p>2）引用类型的存储原理:引用类型继承于Object类（也是引用类型）都是按照Java里面存储对象的内存模型来进行数据存储的，使用Java内存堆和内存栈来进行这种类型的数据存储，简单地讲，“引用”是存储在有序的内存栈上的（存储对象地址），而对象本身（实例化后的对象）的值存储在内存堆上的；</p>
+<p>区别:基本数据类型和引用类型的区别主要在于基本数据类型是分配在栈上的，而引用类型是分配在堆上的()（需要java中的栈、堆概念）</p>
+<p>四、“==”和equal()对数据类型的分析:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">eg1:定义两个String对象（String不是基本数据类型）</div><div class="line">//String是一个特殊的包装类数据。可以用以下两种方式创建：</div><div class="line">//String str = new String(“abc”)；String str = “abc”;</div><div class="line">String a=&quot;abc&quot;;//栈中的a引用变量指向JVM运行时数据区区域方法区的常量池中的“abc”。</div><div class="line">String b=&quot;abc&quot;;//栈中的b引用变量也指向方法区中的常量池中的&quot;abc&quot;，和a指向的地址一样</div><div class="line">String c = new String(&quot;abc&quot;); </div><div class="line">//new一个新的String实例对象，引用变量c指向实例化对象new String(&quot;abc&quot;)的地址，该实例化对象存储在堆中[ **实际该地址指针（地址存在堆中）指向此对象类型数据（存在方法区中数据值）即abc**]，这和存在常量池的“abc”值得地址不一样。</div><div class="line"></div><div class="line">if(a==b)&#123;</div><div class="line">System.out.println(&quot;a==b&quot;);</div><div class="line">&#125;else&#123;</div><div class="line">System.out.println(&quot;a!=b&quot;);&#125;</div><div class="line">System.out.printLn(a==c)</div></pre></td></tr></table></figure></p>
+<p>结果：<br>程序输出a==b<br>           flase<br>原因:a和b引用变量指向的地址的是相同的，a==b比较的是两个引用变量所指向的地址。<br>        a和c引用变量指向的地址的是不相同的，a指向常量区中的abc，c指向新开辟在堆内存中的String对象实例中的abc实例对象中数据值得地址；两个地址不同，==比较返回false。<br>        <a href="">images</a><br><img src="~/12-58-16.jpg" alt="images"></p>
+<p><img src="~/12-56-47.jpg" alt="images"><br><a href="http://www.cnblogs.com/gw811/archive/2012/10/18/2730117.html" target="_blank" rel="external">参考</a><br>eg2：定义两个基本数据类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">int a=4;  //栈中的a引用变量指向方法区中的常量池中的4</div><div class="line">int b=4; //栈中的b引用变量也指向方法区中的常量池中的4</div><div class="line">if(a==b)&#123;</div><div class="line">System.out.println(&quot;a==b&quot;);</div><div class="line">&#125;</div><div class="line">else&#123;</div><div class="line">    System.out.println(&quot;a!=b&quot;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>结果：<br>输出：a==b<br>原因：a和b指向同一个常量区中常量4的地址。==比较两者地址相等。</p>
+<p>不管是引用类型或基本数据类型使用“==”比较，实际上他们都先在栈空间创建了一个各自的变量引用如int a=1 或String b 等，并比较他们指向的地址的值；<br>    如果给基本数据类型赋值，实际是先将在方法区中的常量区中查找是否存在值1的地址（该值有一个唯一的地址），如果存在则将a指向该地址；不存在那么在常量区新建一个值为1的空间，并将该值得地址赋值给a。如果重新给a赋值如：a = 2，同理将a指向的地址改为常量区中值为2的地址。注意 int c =1，代表a和b指向同一个地址（常量区中1的地址）。<br>    如果使用new 实例化对象，对象的引用变量指向的是在堆中该对象实例化的对象地址；<br>   equal()方法比较的是引用变量指向地址最终指向的值。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/09/java/集合/2017-05-09/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -683,6 +1006,167 @@
 <li><a href="http://blog.csdn.net/u014136713/article/details/52089156" target="_blank" rel="external">Java集合类详解</a></li>
 <li><a href="http://blog.csdn.net/frankarmstrong/article/details/56003697" target="_blank" rel="external">JAVA集合类汇总</a></li>
 </ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/java/java编译原理/2017-05-08-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="glinlf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/08/java/java编译原理/2017-05-08-1/" itemprop="url">
+                  java编译原理了解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-08T22:49:00+08:00">
+                2017-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/08/java/java编译原理/2017-05-08-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/05/08/java/java编译原理/2017-05-08-1/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="java编译原理"><a href="#java编译原理" class="headerlink" title="java编译原理"></a>java编译原理</h1><p>java源代码(符合语言规范)–&gt;javac–&gt;.class(二进制文件)–&gt;jvm–&gt;机器语言(不同平台不同种类)</p>
+<p>语义分析器、语法分析器、语义分析器、代码生成器<br>源码-&gt;token流-&gt;语法树-&gt;注解语法树-&gt;字节码<br><a href="">images</a></p>
+<p>流程：</p>
+<p>词法分析器：将源码转换为Token流<br>将源代码划分成一个个Token(找出java语言中的if，else，for等关键字)</p>
+<p>语法分析器：将Token流转化为语法树<br>将上述的一个个Token组成一句句话（或者说成一句句代码块），检查这一句句话是不是符合Java语言规范(如if后面跟的是不是布尔判断表达式)</p>
+<p>语义分析器：将语法树转化为注解语法树<br>将复杂的语法转化成简单的语法（eg.注解、foreach转化为for循环、去掉永不会用到的代码块）并做一些检查，添加一些代码(默认构造器)</p>
+<p>代码生成器：将注解语法树转化为字节码(即将一个数据结构转化成另一个数据结构)</p>
+<p>ps：要获取javac编译器，可以通过OpenJDK来下载源码，可以自己编译javac的源码，也可以通过调用jdk的</p>
+<p>学习参考<br><a href="http://www.cnblogs.com/wade-luffy/p/5925728.html" target="_blank" rel="external">Javac编译原理</a><br><a href="http://blog.csdn.net/liupeng900605/article/details/7651500" target="_blank" rel="external"> Java编译原理（有感）</a></p>
 
           
         
@@ -1481,512 +1965,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/19/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="glinlf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="管弦丝竹，余音袅袅">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/19/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-19T23:09:04+08:00">
-                2017-03-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/搭建博客/" itemprop="url" rel="index">
-                    <span itemprop="name">搭建博客</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/19/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/19/hello-world/" itemprop="commentCount">0</span> comments
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/18/spider/2017-03-18/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="glinlf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="管弦丝竹，余音袅袅">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/18/spider/2017-03-18/" itemprop="url">
-                  如何使用grequests 异步IO批量请求
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-18T10:33:00+08:00">
-                2017-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/spider/" itemprop="url" rel="index">
-                    <span itemprop="name">spider</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/18/spider/2017-03-18/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/18/spider/2017-03-18/" itemprop="commentCount">0</span> comments
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="python-grequests-库的使用记录"><a href="#python-grequests-库的使用记录" class="headerlink" title="python grequests 库的使用记录"></a>python grequests 库的使用记录</h1><ul>
-<li><p>简介：</p>
-<p>   对于大名鼎鼎的request库相信大家都已经非常熟悉了，不过他有个不好的缺点就是阻塞性IO，在你使用request.get()获取所需要的网页时，除非这个网页下载完成，不然不能进行对新网页的获取；而cup的处理速度远比IO读写的速度快多了，为了充分利用cpu，加快网页爬取速度，这里讲介绍使用异步IO获取网页的grequests库的使用。这两个库都是 <a href="https://github.com/kennethreitz/grequests" target="_blank" rel="external">kennethreitz</a>开发的，用法非常相似。</p>
-</li>
-<li><p>安装install<br><code>pip install grequests</code></p>
-</li>
-<li><p>基础用法</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#要爬取的url集合</div><div class="line">urls = [</div><div class="line">         url = &apos;https://www.zhihu.com/people/excited-vczh/following&apos;,</div><div class="line">         url = &apos;https://www.zhihu.com/people/liaoxuefeng/following&apos;,</div><div class="line">         url = &apos;https://www.zhihu.com/people/hellolin-30/following&apos;</div><div class="line">]</div><div class="line"></div><div class="line">#同时将上述请求发送</div><div class="line">rs = (grequests.get(u) for u in urls)</div><div class="line"></div><div class="line">#查看发送请求的响应状态码和响应结果：</div><div class="line">        respond_html=[]</div><div class="line">        for resp in grequests.map(rs, exception_handler=exception_handler):</div><div class="line">            # grequests.map可以查看异步io么一个请求返回的状态码200 500</div><div class="line">            # print(&apos;status:&#123;0&#125; url:&#123;1&#125;&apos;.format(resp, resp.url))</div><div class="line">            if resp is not None:</div><div class="line">                respond_html.append(resp.text)</div><div class="line">            else:</div><div class="line">                continue</div></pre></td></tr></table></figure>
-<ul>
-<li>异常的处理</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">def exception_handler(request, exception):</div><div class="line">    print(&apos;got exception request: &#123;0&#125;, exception &#123;1&#125;&apos;.format(request, exception))</div></pre></td></tr></table></figure>
-<ul>
-<li><p>异步IO实际运用效果的反思：</p>
-<pre><code> a.原本毕设在做一个基于python的知乎用户信息特征爬虫系统的，为了加快爬取速度思考使用异步IO，主要思路：                  
-1 对用户信息的的请求入口使用异步IO（grequests）请求多个url地址        
- 2 每一个用户关注人又有多个分页，对分页进行异步IO请求。
- 原先未使用grequests库，由于阻塞IO的影响，每次只能爬取一个用户信息，再爬取每一用户第一页下的关注人url地址（实际未爬全所有该用户关注的用户）；速度爬取相对较快；使用grequests后去爬取某个用户所有分页下的关注人url后，速度开始变慢，主要原因是：在爬取这个用户后，接着要全部爬完和解析所有分页的html（基本爬全所有关注的用户）；比如某个用户关注上万人，系统爬取该用户下所有关注人都要耗费大把时间。所以异步IO提速还需要看实际的运用情况和环境。比如本身网络带宽限制，机器硬件限制等等都会影响到整体的速度。
- b.爬取过程的问题：
- 虽然该系统只是爬取用户的关注人，不爬取被关注人信息。所以不存在关注和被关注的关系，当是存在 多个人关注同一个人的情况，所以如果爬取所有每个人的关注人，仍然存在爬取了很多重复性爬过的过户，特别是爬取解析分页网页（某个用户关注人特别多的情况）；耗费资源时间却做很多无用功。
-个人解决方法：控制爬取的分页数（实际爬去的分页数还需算法和大数据理论支撑），概率性爬取关注人的url（分页下）。存在多人关注同一人的关系便存在概率性爬取到此用户的可能。
- 缺点：部分概率爬取不到关注用户；爬取的用户数据不全。
-</code></pre><h2 id="grequets使用代理"><a href="#grequets使用代理" class="headerlink" title="grequets使用代理"></a>grequets使用代理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">proxies = &#123;&apos;http&apos;: &apos;http://219.148.108.126:8998&apos;&#125;</div><div class="line">s = (grequests.get(u, proxies=proxies) for u in urls)</div></pre></td></tr></table></figure>
-</li>
-<li><p>参考</p>
-<ul>
-<li><a href="https://pypi.python.org/pypi/grequests" target="_blank" rel="external">https://pypi.python.org/pypi/grequests</a></li>
-<li><a href="https://github.com/kennethreitz/grequests" target="_blank" rel="external">https://github.com/kennethreitz/grequests</a></li>
-<li><a href="http://blog.upeoe.com/2016/11/24/how-to-use-grequest/" target="_blank" rel="external">http://blog.upeoe.com/2016/11/24/how-to-use-grequest/</a></li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/17/python/2017-03-17/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="glinlf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="管弦丝竹，余音袅袅">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/17/python/2017-03-17/" itemprop="url">
-                  python全局变量
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-17T15:52:00+08:00">
-                2017-03-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/17/python/2017-03-17/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/17/python/2017-03-17/" itemprop="commentCount">0</span> comments
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="python全局变量使用"><a href="#python全局变量使用" class="headerlink" title="python全局变量使用:"></a>python全局变量使用:</h1><ul>
-<li>1 可以直接定义一个globalvar.py文件；里面存放其他文件要使用的变量。在其他文件中导入:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">from src.globalvar import *</div><div class="line"># __author_=&quot;gLinlf&quot;</div><div class="line"># coding=utf-8</div><div class="line">import queue</div><div class="line"></div><div class="line"># 定义全局变量</div><div class="line"></div><div class="line"># 已经爬取得到所有url</div><div class="line">had_url = set()</div><div class="line"># 已经爬取解析用户的url</div><div class="line">had_used_url = set()</div><div class="line"># 用户关注的其他用户的url 使用队列（使用后删除）</div><div class="line">follow_url = queue.Queue(maxsize=0)</div><div class="line"># 爬虫入口</div><div class="line"># follow_url.put(&apos;https://www.zhihu.com/people/liaoxuefeng&apos;)</div><div class="line">follow_url.put(&apos;https://www.zhihu.com/people/competitionlaw&apos;)</div><div class="line"># 请求头</div><div class="line">header = &#123;</div><div class="line">    &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&apos;&#125;</div><div class="line"></div><div class="line"># 数据库名</div><div class="line">db_name = &apos;test&apos;</div><div class="line"></div><div class="line"># 抽样爬取不大于10个分页的用户(200人)（加快用户信息爬取速度！概率性减少 花费早爬取页面中存在较多已经爬去的用户url 的资源和时间。）</div><div class="line">max_page = int(10)</div><div class="line"></div><div class="line"># 异步IO请求解析的最大页码数</div><div class="line">max_parse_page = int(5)</div></pre></td></tr></table></figure>
-<ul>
-<li>2使用global关键字声明</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2036,7 +2014,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2047,7 +2025,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2058,7 +2036,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
