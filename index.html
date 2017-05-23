@@ -322,6 +322,681 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/22/springboot/2017-05-22-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="glinlf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/22/springboot/2017-05-22-1/" itemprop="url">
+                  2017-05-22-1
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-22T14:09:00+08:00">
+                2017-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/springboot/" itemprop="url" rel="index">
+                    <span itemprop="name">springboot</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/22/springboot/2017-05-22-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/05/22/springboot/2017-05-22-1/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#springboot启动器</p>
+<p>Spring Boot应用启动器基本的一共有（现知道的是44）种：具体如下：</p>
+<p>1）spring-boot-starter<br>这是Spring Boot的核心启动器，包含了自动配置、日志和YAML。<br>2）spring-boot-starter-actuator<br>帮助监控和管理应用。<br>3）spring-boot-starter-amqp<br>通过spring-rabbit来支持AMQP协议（Advanced Message Queuing Protocol）。<br>4）spring-boot-starter-aop<br>支持面向方面的编程即AOP，包括spring-aop和AspectJ。<br>5）spring-boot-starter-artemis<br>通过Apache Artemis支持JMS的API（Java Message Service API）。<br>6）spring-boot-starter-batch<br>支持Spring Batch，包括HSQLDB数据库。<br>7）spring-boot-starter-cache<br>支持Spring的Cache抽象。<br>8）spring-boot-starter-cloud-connectors<br>支持Spring Cloud Connectors，简化了在像Cloud Foundry或Heroku这样的云平台上连接服务。<br>9）spring-boot-starter-data-elasticsearch<br>支持ElasticSearch搜索和分析引擎，包括spring-data-elasticsearch。<br>10）spring-boot-starter-data-gemfire<br>支持GemFire分布式数据存储，包括spring-data-gemfire。<br>11）spring-boot-starter-data-jpa<br>支持JPA（Java Persistence API），包括spring-data-jpa、spring-orm、Hibernate。<br>12）spring-boot-starter-data-mongodb<br>支持MongoDB数据，包括spring-data-mongodb。<br>13）spring-boot-starter-data-rest<br>通过spring-data-rest-webmvc，支持通过REST暴露Spring Data数据仓库。<br>14）spring-boot-starter-data-solr<br>支持Apache Solr搜索平台，包括spring-data-solr。<br>15）spring-boot-starter-freemarker<br>支持FreeMarker模板引擎。<br>16）spring-boot-starter-groovy-templates<br>支持Groovy模板引擎。<br>17）spring-boot-starter-hateoas<br>通过spring-hateoas支持基于HATEOAS的RESTful Web服务。<br>18）spring-boot-starter-hornetq<br>通过HornetQ支持JMS。<br>19）spring-boot-starter-integration<br>支持通用的spring-integration模块。<br>20）spring-boot-starter-jdbc<br>支持JDBC数据库。<br>21）spring-boot-starter-jersey<br>支持Jersey RESTful Web服务框架。<br>22）spring-boot-starter-jta-atomikos<br>通过Atomikos支持JTA分布式事务处理。<br>23）spring-boot-starter-jta-bitronix<br>通过Bitronix支持JTA分布式事务处理。<br>24）spring-boot-starter-mail<br>支持javax.mail模块。<br>25）spring-boot-starter-mobile<br>支持spring-mobile。<br>26）spring-boot-starter-mustache<br>支持Mustache模板引擎。<br>27）spring-boot-starter-redis<br>支持Redis键值存储数据库，包括spring-redis。<br>28）spring-boot-starter-security<br>支持spring-security。<br>29）spring-boot-starter-social-facebook<br>支持spring-social-facebook<br>30）spring-boot-starter-social-linkedin<br>支持pring-social-linkedin<br>31）spring-boot-starter-social-twitter<br>支持pring-social-twitter<br>32）spring-boot-starter-test<br>支持常规的测试依赖，包括JUnit、Hamcrest、Mockito以及spring-test模块。<br>33）spring-boot-starter-thymeleaf<br>支持Thymeleaf模板引擎，包括与Spring的集成。<br>34）spring-boot-starter-velocity<br>支持Velocity模板引擎。<br>35）spring-boot-starter-web<br>S支持全栈式Web开发，包括Tomcat和spring-webmvc。<br>36）spring-boot-starter-websocket<br>支持WebSocket开发。<br>37）spring-boot-starter-ws<br>支持Spring Web Services。</p>
+<p>Spring Boot应用启动器面向生产环境的还有2种，具体如下：<br>1）spring-boot-starter-actuator<br>增加了面向产品上线相关的功能，比如测量和监控。<br>2）spring-boot-starter-remote-shell<br>增加了远程ssh shell的支持。</p>
+<p>最后，Spring Boot应用启动器还有一些替换技术的启动器，具体如下：<br>1）spring-boot-starter-jetty<br>引入了Jetty HTTP引擎（用于替换Tomcat）。<br>2）spring-boot-starter-log4j<br>支持Log4J日志框架。<br>3）spring-boot-starter-logging<br>引入了Spring Boot默认的日志框架Logback。<br>4）spring-boot-starter-tomcat<br>引入了Spring Boot默认的HTTP引擎Tomcat。<br>5）spring-boot-starter-undertow<br>引入了Undertow HTTP引擎（用于替换Tomcat）。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/22/springboot/2017-05-22/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="glinlf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/22/springboot/2017-05-22/" itemprop="url">
+                  Mon May 22 2017 00:00:00 GMT+0800 (中国标准时间)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-22T10:25:00+08:00">
+                2017-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/springboot/" itemprop="url" rel="index">
+                    <span itemprop="name">springboot</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/22/springboot/2017-05-22/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/05/22/springboot/2017-05-22/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#spring boot 之Controller简单单元测试（RESTful API）</p>
+<p>MocMvc做为服务端测试类，功能十分强大；在spring全家桶中，在springMVC和springboot中都可以使用，用法十分相似。</p>
+<ul>
+<li>首先需要在pom.xml中加入依赖配置。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">           &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">           &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</div><div class="line">           &lt;scope&gt;test&lt;/scope&gt;</div><div class="line">       &lt;/dependency&gt;</div></pre></td></tr></table></figure>
+<p>###第一种使用注解方法注入MocMvc<br>//@RunWith(SpringJUnit4ClassRunner.class) SpringRunner extends SpringJUnit4ClassRunner<br>@RunWith(SpringRunner.class)<br>@WebAppConfiguration //支持web项目注解<br>@SpringBootTest////(classes = DemoApplication.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)指定SpringBoot工程的Application启动类<br>@AutoConfigureMockMvc<br>public class TestController {<br>    @Autowired<br>    private MockMvc mockMvc;<br>    @Autowired<br>    private UserService userService;</p>
+<pre><code>@Test
+public void testUser() throws Exception {
+    //提交请求 构建RequestBuilder对象，模拟request请求
+    RequestBuilder request = null;
+    request = MockMvcRequestBuilders.get(&quot;/&quot;);
+    mockMvc.perform(request).andExpect(status().isOk()).andReturn();
+    mockMvc.perform((post(&quot;/hello&quot;))).andExpect(status().isOk())
+            .andDo(print()).andReturn();
+}
+</code></pre><p>###第二种手动注入MocMvc（分为集成web环境和独立测试方式）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@RunWith(SpringRunner.class)</div><div class="line">@WebAppConfiguration //支持web项目注解</div><div class="line">@SpringBootTest////(classes = DemoApplication.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)指定SpringBoot工程的Application启动类</div><div class="line">public class TestController &#123;</div><div class="line">    private MockMvc mockMvc;</div><div class="line">    @Autowired</div><div class="line">    private WebApplicationContext wac;</div><div class="line"></div><div class="line">//集成Web环境方式 ()</div><div class="line">    @Before</div><div class="line">    public void setUp() &#123;</div><div class="line">        this.mockMvc = webAppContextSetup(this.wac).build();</div><div class="line">    &#125;</div><div class="line">    //独立测试</div><div class="line">        //@Before</div><div class="line">    //public void setUp() &#123;</div><div class="line">    //    IndexController indexController =new IndexController();</div><div class="line">    //    this.mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();</div><div class="line">    //&#125;</div><div class="line"></div><div class="line">    @Test</div><div class="line">    public void testUser() throws Exception &#123;</div><div class="line">        //提交请求 构建RequestBuilder对象，模拟request请求</div><div class="line">        RequestBuilder request = null;</div><div class="line">        request = MockMvcRequestBuilders.get(&quot;/&quot;);</div><div class="line">        mockMvc.perform(request).andExpect(status().isOk()).andReturn();</div><div class="line">        mockMvc.perform((post(&quot;/hello&quot;))).andExpect(status().isOk())</div><div class="line">                .andDo(print()).andReturn();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>1、@WebAppConfiguration：测试环境使用，用来表示测试环境使用的ApplicationContext将是WebApplicationContext类型的；value指定web应用的根；<br>2、通过@Autowired WebApplicationContext wac：注入web环境的ApplicationContext容器；<br>3、然后通过MockMvcBuilders.webAppContextSetup(wac).build()创建一个MockMvc进行测试；</p>
+</blockquote>
+<ul>
+<li>几个常用的方法：</li>
+</ul>
+<blockquote>
+<p> perform：执行一个RequestBuilder请求，会自动执行SpringMVC的流程并映射到相应的控制器执行处理；<br>andExpect：添加ResultMatcher验证规则，验证控制器执行完成后结果是否正确；<br>andDo：添加ResultHandler结果处理器，比如调试时打印结果到控制台；<br>andReturn：最后返回相应的MvcResult；然后进行自定义验证/进行下一步的异步处理；</p>
+</blockquote>
+<ul>
+<li>参考</li>
+</ul>
+<p><a href="https://my.oschina.net/u/2356966/blog/834661" target="_blank" rel="external">spring boot 基于Controller自动化测试demo</a><br><a href="http://blog.csdn.net/xiao_xuwen/article/details/52890730" target="_blank" rel="external">Junit学习笔记之五：MockMVC</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/21/springboot/2017-05-21-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="glinlf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/21/springboot/2017-05-21-1/" itemprop="url">
+                  2017-05-21-1
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-21T18:38:00+08:00">
+                2017-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/springboot/" itemprop="url" rel="index">
+                    <span itemprop="name">springboot</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/21/springboot/2017-05-21-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/05/21/springboot/2017-05-21-1/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="springboot-将默认web容器tomcat-换成-jetty"><a href="#springboot-将默认web容器tomcat-换成-jetty" class="headerlink" title="springboot 将默认web容器tomcat 换成 jetty"></a>springboot 将默认web容器tomcat 换成 jetty</h1><blockquote>
+<p>springboot框架默认集成（tomcat或jetty）web容器，web容器也使用默认配置，不过也可在配置文件（application.properties）中进行重写覆盖；springboot项目的启动方式和java程序类似，使用main（）方法启动非常方便快捷（也可以使用maven命令启动 mvn spring- boot:run）。框架默认使用tomcat容器，下面介绍如何将默认容器tomcat换成jetty容器。</p>
+</blockquote>
+<p>###第一步修改pom.xml的配置，将原来的默认的tomcat依赖配置去掉；新增jetty依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;dependencies&gt;</div><div class="line">    		&lt;dependency&gt;</div><div class="line">			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">			&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</div><div class="line">			&lt;!--把pom中的tomcat依赖排除--&gt;</div><div class="line">			&lt;exclusions&gt;</div><div class="line">				&lt;exclusion&gt;</div><div class="line">					&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">					&lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;</div><div class="line">				&lt;/exclusion&gt;</div><div class="line">			&lt;/exclusions&gt;</div><div class="line">		&lt;/dependency&gt;</div><div class="line">	&lt;!--增加jetty依赖--&gt;</div><div class="line">		&lt;dependency&gt;</div><div class="line">			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">			&lt;artifactId&gt;spring-boot-starter-jetty&lt;/artifactId&gt;</div><div class="line">		&lt;/dependency&gt;</div><div class="line">&lt;/dependencies&gt;</div></pre></td></tr></table></figure>
+<p>###第二步（方法一）在(DemoApplication.java命名可能不同)启动类中继承SpringBootServletInitializer类重写configure（）方法；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@SpringBootApplication</div><div class="line">public class DemoApplication extends SpringBootServletInitializer &#123;</div><div class="line">	@Override</div><div class="line">	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) &#123;</div><div class="line">		return builder.sources(this.getClass());</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		SpringApplication.run(DemoApplication.class, args);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###第二步（方法二）注入Jetty容器的管理Bean，在(DemoApplication.java命名可能不同)启动类中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@SpringBootApplication</div><div class="line">public class DemoApplication &#123;</div><div class="line"></div><div class="line">	@Bean</div><div class="line">	public EmbeddedServletContainerFactory servletContainer() &#123;</div><div class="line">		JettyEmbeddedServletContainerFactory factory =</div><div class="line">		new JettyEmbeddedServletContainerFactory();</div><div class="line">		return factory;</div><div class="line">	&#125;</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		SpringApplication.run(DemoApplication.class, args);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="内置服务器配置覆盖说明使用可参见其他blog；项目亦可打包成war包手动放置web容器（tomcat，weblogic等）中进行项目部署。"><a href="#内置服务器配置覆盖说明使用可参见其他blog；项目亦可打包成war包手动放置web容器（tomcat，weblogic等）中进行项目部署。" class="headerlink" title="内置服务器配置覆盖说明使用可参见其他blog；项目亦可打包成war包手动放置web容器（tomcat，weblogic等）中进行项目部署。"></a>内置服务器配置覆盖说明使用可参见其他blog；项目亦可打包成war包手动放置web容器（tomcat，weblogic等）中进行项目部署。</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/21/springboot/2017-05-21/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="glinlf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/21/springboot/2017-05-21/" itemprop="url">
+                  Sun May 21 2017 00:00:00 GMT+0800 (中国标准时间)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-21T15:09:00+08:00">
+                2017-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/springboot/" itemprop="url" rel="index">
+                    <span itemprop="name">springboot</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/21/springboot/2017-05-21/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/05/21/springboot/2017-05-21/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#how to use idea create a springboot web project</p>
+<blockquote>
+<p>第一步：打开idea，点检File–&gt;New–&gt;project</p>
+<p>第二步：</p>
+</blockquote>
+<p><img src="http://oo4xlamjr.bkt.clouddn.com/19-07-57.jpg" alt="images"></p>
+<blockquote>
+<p>第三步：</p>
+</blockquote>
+<p><img src="http://oo4xlamjr.bkt.clouddn.com/19-11-49.jpg" alt="images"></p>
+<blockquote>
+<p>第四步：</p>
+</blockquote>
+<p><img src="http://oo4xlamjr.bkt.clouddn.com/19-13-02.jpg" alt="images"></p>
+<blockquote>
+<p>第五步：</p>
+</blockquote>
+<p><img src="http://oo4xlamjr.bkt.clouddn.com/19-14-03.jpg" alt="images"></p>
+<blockquote>
+<p>第六步：生成的项目结构</p>
+</blockquote>
+<p><img src="http://oo4xlamjr.bkt.clouddn.com/19-41-25.jpg" alt="images"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/14/jvm/JVM/2017-05-14-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1376,595 +2051,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/16/music/2017-04-16/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="glinlf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="管弦丝竹，余音袅袅">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/16/music/2017-04-16/" itemprop="url">
-                  Let Your Heart Hold Fast
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-16T14:50:00+08:00">
-                2017-04-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/music/" itemprop="url" rel="index">
-                    <span itemprop="name">music</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/16/music/2017-04-16/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/04/16/music/2017-04-16/" itemprop="commentCount">0</span> comments
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <center><br><br>Let Your Heart Hold Fast<br><br>All my days are spent<br> 那飞速逝去的时日<br>All my cards are dealt<br>那已经确定的命运<br>Oh ,the descolation grows<br>悲凉无尽蔓延心脏<br>Every inch  revealed<br>心脏每一寸<br>As my heart is pierced<br>都被刺穿<br>Oh,my soul is now exposed<br>灵魂彻底暴露<br>In the ocean deep<br>穿过深邃的海洋<br>In the canyons steep<br>越过险峻的峡谷<br>Walls of granite here I stand<br>我立在岩石之上<br>All my desperate calls<br>我所有绝望的呼唤<br>Rcho off the walls<br>在墙间回荡<br>Back and forth;then back again<br>久久不息<br>To believe I walk alone<br>相信自己能踽踽独行<br>Is a lie that I’ve been told<br>这是别人告诉我的谎言<br>So let your heart hold fast<br>所以不要灰心丧气<br>For this soon shall pass<br>因为一切都将成为过去<br>Like the high tide takes the sand<br>就像沙子会被海潮带走<br>Oh,Oh,Oh,Oh,！<br>哦~<br>Oh,Oh,Oh,Oh,！<br>哦~<br>Oh,Oh,Oh,Oh,Oh！<br>哦~<br>Oh,Oh,Oh,Oh,！<br>哦~<br>Oh,Oh,Oh,Oh,！<br>哦~<br>Oh,Oh,Oh,Oh,Oh！<br>哦~<br>At the bitter end<br>在痛苦的最后<br>Salt and liquid blend<br>泪水涌出<br>From the corner of eyes<br>从我的眼角滑落<br>All the miles wrecked<br>蹒跚走过的所有路<br>Every broken step<br>艰难走过的每一步<br>Always searching,always blind<br>一直在盲目的寻找<br>Never fear!No!Never fear!<br>不要畏惧！不要畏惧！<br>Never fear!No! Never fear!<br>永不畏惧！永不畏惧！<br>So let your heart hold fast<br>所以不要灰心丧气<br>For this soon shall pass<br>因为一切将成为过去<br>There’s another hill ahead<br>前方将是人生的另一座高峰<br><br><br>&gt; 这世上总有很多我们无法掌控的事情，就像我想你一样，总是那么的不经意间。<br><br></center>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/python/flask/2017-03-22/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="glinlf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="管弦丝竹，余音袅袅">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/22/python/flask/2017-03-22/" itemprop="url">
-                  flask get/post参数获取
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T15:25:00+08:00">
-                2017-03-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/flask/" itemprop="url" rel="index">
-                    <span itemprop="name">flask</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/22/python/flask/2017-03-22/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/22/python/flask/2017-03-22/" itemprop="commentCount">0</span> comments
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="flask-使用笔记"><a href="#flask-使用笔记" class="headerlink" title="flask 使用笔记"></a>flask 使用笔记</h1><h2 id="获得get和post-提交的参数"><a href="#获得get和post-提交的参数" class="headerlink" title="获得get和post 提交的参数"></a>获得get和post 提交的参数</h2><p>post 提交参数获取<br>request.form[‘xxx’]  其类型为：ImmutableMultiDict<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@app.route(&quot;/deleteInfo&quot;, methods=[&apos;post&apos;])</div><div class="line">@allow_cross_domain</div><div class="line">def delete_info():</div><div class="line">    print(type(request.form))</div><div class="line">    # &lt; class &apos;werkzeug.datastructures.ImmutableMultiDict&apos;&gt;</div><div class="line">    _id = request.form[&quot;_id&quot;]</div></pre></td></tr></table></figure></p>
-<p>get 提交参数获取<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@app.route(&apos;/queryDetl&apos;)</div><div class="line">@allow_cross_domain</div><div class="line">def query_detail():</div><div class="line">    _id = request.args.get(&quot;_id&quot;)</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/python/flask/2017-03-21/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="glinlf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="管弦丝竹，余音袅袅">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/21/python/flask/2017-03-21/" itemprop="url">
-                  解决Flask 跨域请求问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T17:59:00+08:00">
-                2017-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/21/python/flask/2017-03-21/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/21/python/flask/2017-03-21/" itemprop="commentCount">0</span> comments
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="python-flask-跨域访问装饰器实现"><a href="#python-flask-跨域访问装饰器实现" class="headerlink" title="python flask 跨域访问装饰器实现"></a>python flask 跨域访问装饰器实现</h1><p>现在大多数的web项目都已经是前后端分离；一般纯的api接口需要考虑跨域访问问题 下面是简单的跨域访问装饰器在flask中的实现（其他语言web项目跨域处理方法类似）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">from functools import wraps</div><div class="line">from flask import make_response</div><div class="line"></div><div class="line"></div><div class="line">def allow_cross_domain(fun):</div><div class="line">    @wraps(fun)</div><div class="line">    def wrapper_fun(*args, **kwargs):</div><div class="line">        rst = make_response(fun(*args, **kwargs))</div><div class="line">        rst.headers[&apos;Access-Control-Allow-Origin&apos;] = &apos;*&apos;</div><div class="line">        rst.headers[&apos;Access-Control-Allow-Methods&apos;] = &apos;PUT,GET,POST,DELETE&apos;</div><div class="line">        allow_headers = &quot;Referer,Accept,Origin,User-Agent&quot;</div><div class="line">        rst.headers[&apos;Access-Control-Allow-Headers&apos;] = allow_headers</div><div class="line">        return rst</div><div class="line">    return wrapper_fun</div><div class="line"></div><div class="line">@app.route(&apos;/hosts/&apos;)</div><div class="line">@allow_cross_domain</div><div class="line">def domains():</div><div class="line">    pass</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/20/my-first-hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="glinlf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="管弦丝竹，余音袅袅">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/20/my-first-hexo/" itemprop="url">
-                  my first hexo
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-20T00:14:58+08:00">
-                2017-03-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/20/my-first-hexo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/20/my-first-hexo/" itemprop="commentCount">0</span> comments
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="hello-glinlf-and-hexo"><a href="#hello-glinlf-and-hexo" class="headerlink" title="hello glinlf and hexo!"></a>hello glinlf and hexo!</h1>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2014,7 +2100,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2025,7 +2111,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2036,7 +2122,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
