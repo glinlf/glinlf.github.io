@@ -322,6 +322,337 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/29/java/内部类/2017-05-29/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="glinlf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/29/java/内部类/2017-05-29/" itemprop="url">
+                  java内部类学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-29T11:22:00+08:00">
+                2017-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/29/java/内部类/2017-05-29/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/05/29/java/内部类/2017-05-29/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="java内部类学习："><a href="#java内部类学习：" class="headerlink" title="java内部类学习："></a>java内部类学习：</h1><ul>
+<li>内部类的作用:<blockquote>
+<ul>
+<li>1.内部类可以很好的实现隐藏</li>
+<li>一般的非内部类，是不允许有 private 与protected权限的，但内部类可以</li>
+<li>2.内部类拥有外围类的所有元素的访问权限</li>
+<li>3.可是实现多重继承(使用内部类去继承其他类实现 外部类的间接多继承)</li>
+<li>4.可以避免修改接口而实现同一个类中两种同名方法的调用。</li>
+<li>(继承的父类和实现的接口类中的方法名相同时，可以用内部类来实现接口，外部类继承其他类，这样就不会与外围类的方法冲突了)</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>注意：<br>1.内部类可以随意的访问外部类的成员。包括private等修饰符修饰的变量和方法。但是外部类不能轻松的访问内部类的成员，必须常见一个内部类的实例再去访问。<br>2.内部类可以拥有private访问权限、protected访问权限、public访问权限及包访问权限。比如上面的例子，如果成员内部类Inner用private修饰，则只能在外部类的内部访问，如果用public修饰，则任何地方都能访问；如果用protected修饰，则只能在同一个包下或者继承外部类的情况下访问；如果是默认访问权限，则只能在同一个包下访问。这一点和外部类有一点不一样，外部类只能被public和包访问两种权限修饰。我个人是这么理解的，由于成员内部类看起来像是外部类的一个成员，所以可以像类的成员一样拥有多种权限修饰。</p>
+<ul>
+<li>内部类的类型：<br>成员内部类：成员内部类是最普通的内部类，定义在主类体内部的类，类似该类的成员。成员内部类是依附外部类而存在的.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">public class Test &#123;</div><div class="line">    public static void main(String[] args)  &#123;</div><div class="line">        //第一种方式：</div><div class="line">        Outter outter = new Outter();</div><div class="line">        Outter.Inner inner = outter.new Inner();  //必须通过Outter对象来创建</div><div class="line">         </div><div class="line">        //第二种方式：</div><div class="line">        Outter.Inner inner1 = outter.getInnerInstance();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">class Outter &#123;</div><div class="line">    private Inner inner = null;</div><div class="line">    public Outter() &#123;&#125;</div><div class="line">    </div><div class="line">     //获取内部类实例对象的方法（单例模式）</div><div class="line">    public Inner getInnerInstance() &#123;</div><div class="line">        if(inner == null)</div><div class="line">            inner = new Inner();</div><div class="line">        return inner;</div><div class="line">    &#125;</div><div class="line">      </div><div class="line">    class Inner &#123;</div><div class="line">        public Inner() &#123; &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>局部内部类：局部内部类是定义在一个方法或者一个作用域里面的类，它和成员内部类的区别在于局部内部类的访问仅限于方法内或者该作用域内。局部内部类就像是方法里面的一个局部变量一样，是不能有public、protected、private以及static修饰符的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class People &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Man &#123;    </div><div class="line">    //局部内部类</div><div class="line">    public People getWoman() &#123;</div><div class="line">        class Woman extends People &#123; //局部内部类</div><div class="line">            int age = 23;</div><div class="line">        &#125;</div><div class="line">        return new Woman();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>匿名内部类：<br> 1、 匿名内部类是没有访问修饰符的。<br> 2、 new 匿名内部类，这个类首先是要存在的。如果我们将那个InnerClass接口注释掉，就会出现编译出错。<br> 3、 注意getInnerClass()方法的形参，第一个形参是用final修饰的，而第二个却没有。同时我们也发现第二个形参在匿名内部类中没有使用过，所以当所在方法的形参需要被匿名内部类使用，那么这个形参就必须为final。<br>4、 匿名内部类是没有构造方法的。因为它连名字都没有何来构造方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">public class OuterClass &#123;</div><div class="line">    public InnerClass getInnerClass(final int num,String str2)&#123;</div><div class="line">        return new InnerClass()&#123;</div><div class="line">            int number = num + 3;</div><div class="line">            public int getNumber()&#123;</div><div class="line">                return number;</div><div class="line">            &#125;</div><div class="line">        &#125;;        /* 注意：分号不能省 */</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        OuterClass out = new OuterClass();</div><div class="line">        InnerClass inner = out.getInnerClass(2, &quot;chenssy&quot;);</div><div class="line">        System.out.println(inner.getNumber());</div><div class="line">        //inner.method4();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">interface InnerClass &#123;</div><div class="line">    int getNumber();</div><div class="line">&#125;</div><div class="line">//class InnerClass&#123;</div><div class="line">//     int getNumber()&#123;&#125;;</div><div class="line">//</div><div class="line">//    public void method4() &#123;</div><div class="line">//        System.out.println(&quot;匿名内部类 method4&quot;);</div><div class="line">//    &#125;</div><div class="line">//&#125;</div></pre></td></tr></table></figure>
+<p>静态内部类：static声明的内部类。静态内部类也是定义在另一个类里面的类，只不过在类的前面多了一个关键字static。静态内部类是不需要依赖于外部类的，这点和类的静态成员属性有点类似，并且它不能使用外部类的非static成员变量或者方法，这点很好理解，因为在没有外部类的对象的情况下，可以创建静态内部类的对象，如果允许访问外部类的非static成员就会产生矛盾，因为外部类的非static成员必须依附于具体的对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class Test &#123;</div><div class="line">    public static void main(String[] args)  &#123;</div><div class="line">//不依赖外部类的实例去创建静态内部类的实例对象</div><div class="line">        Outter.Inner inner = new Outter.Inner();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">class Outter &#123;</div><div class="line">    public Outter() &#123;</div><div class="line">    &#125;</div><div class="line">     </div><div class="line">    static class Inner &#123;</div><div class="line">        public Inner() &#123;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>参考：<br><a href="http://blog.csdn.net/a1259109679/article/details/48156407" target="_blank" rel="external">http://blog.csdn.net/a1259109679/article/details/48156407</a><br><a href="http://andy136566.iteye.com/blog/1061951/" target="_blank" rel="external">http://andy136566.iteye.com/blog/1061951/</a><br><a href="http://www.cnblogs.com/chenssy/p/3388487.html" target="_blank" rel="external">http://www.cnblogs.com/chenssy/p/3388487.html</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/28/java/反射/2017-05-28/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="glinlf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管弦丝竹，余音袅袅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/28/java/反射/2017-05-28/" itemprop="url">
+                  java反射机制之获取类信息的Util
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-28T11:18:00+08:00">
+                2017-05-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/28/java/反射/2017-05-28/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/05/28/java/反射/2017-05-28/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#java反射机制之获取类信息的Util</p>
+<p>学习反射期间编写的一个能获取类的信息（包括成员变量，成员方法以及构造函数信息）的Util类。对于java反射操作的关键，获取类类型（Class）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Created by g-Linlf on 2017/5/28.</div><div class="line"> **/</div><div class="line">public class ClassUtil &#123;</div><div class="line"></div><div class="line">    //获取对象的所有信息 成员方法</div><div class="line">    public static void getMethodsMessage(Object obj) &#123;</div><div class="line">        //    获取类类型</div><div class="line">        //String name = obj.getClass().getName();</div><div class="line">        //System.out.println(name);</div><div class="line">        //System.out.println(obj.getClass().getSimpleName());</div><div class="line">        Class tClass = obj.getClass();</div><div class="line">        //tClass = Class.forName(name);</div><div class="line">        System.out.println(&quot;类名为:&quot; + tClass.getName());</div><div class="line"></div><div class="line">        //获取成员方法 ，万事万物接对象 Method类为方法的对象</div><div class="line">        //Object[] methods = tClass.getMethods();</div><div class="line">        Method[] methods = tClass.getMethods();//获取到所有public的函数，包括父类继承过来的</div><div class="line">        //Method[] methods = tClass.getDeclaredMethods();//获取到该类所有自己声明的方法，不论访问权限。</div><div class="line"></div><div class="line">        for (Method method : methods) &#123;</div><div class="line">            //System.out.println(method);</div><div class="line">            //获得返回值类类型</div><div class="line">            Class returnType = method.getReturnType();</div><div class="line">            System.out.print(returnType.getSimpleName() + &quot; &quot;);</div><div class="line">            //获得方法名</div><div class="line">            System.out.print(method.getName() + &quot;(&quot;);</div><div class="line">            //获取参数</div><div class="line">            //获取参数类型</div><div class="line">            Class[] paramsType = method.getParameterTypes();</div><div class="line">            //for (Class class1 : paramsType) &#123;</div><div class="line">            //    System.out.print(class1.getName() + &quot;,&quot;);</div><div class="line">            //&#125;</div><div class="line">            for (int i = 0; i &lt; paramsType.length; i++) &#123;</div><div class="line">                if (i == paramsType.length - 1) &#123;</div><div class="line">                    System.out.print(paramsType[i].getName());</div><div class="line">                &#125; else &#123;</div><div class="line">                    System.out.print(paramsType[i].getName() + &quot;,&quot;);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            System.out.println(&quot;)&quot;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //获取对象的成员变量</div><div class="line">    public static void getFieldMessage(Object obj) &#123;</div><div class="line"></div><div class="line">        Class tClass = obj.getClass();</div><div class="line">        /**</div><div class="line">         * 成员变量也是对象</div><div class="line">         * Field封装了关于成员变量的操作</div><div class="line">         *</div><div class="line">         */</div><div class="line">        System.out.println(&quot;--------成员变量---------&quot;);</div><div class="line">        //getFields()获取到所有public的成员变量 getDeclaredFields()获取到该类自己声明的成员变量</div><div class="line">        //Field[] fields = tClass.getFields();</div><div class="line">        Field[] fields = tClass.getDeclaredFields();</div><div class="line"></div><div class="line">        for (Field field : fields) &#123;</div><div class="line">            //System.out.println(field);</div><div class="line">            //变量类型</div><div class="line">            System.out.print(field.getType() + &quot; &quot;);</div><div class="line">            // 变量名</div><div class="line">            System.out.println(field.getName());</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //获取对象的构造函数信息（构造函数 也是对象）</div><div class="line">    public static void getConMessage(Object obj) &#123;</div><div class="line">        Class tClass = obj.getClass();</div><div class="line">        /**</div><div class="line">         * java.lang.Constructor封装了构造函数的信息</div><div class="line">         * getConstructors() 获取所有public的构造函数</div><div class="line">         * getDeclaredConstructors() 获取对象定义的构造函数</div><div class="line">         */</div><div class="line">        //Constructor[] cons = tClass.getConstructors();</div><div class="line">        Constructor[] cons = tClass.getDeclaredConstructors();</div><div class="line"></div><div class="line">        for (Constructor con : cons) &#123;</div><div class="line">            //获取构造函数的名</div><div class="line">            System.out.print(con.getName() + &quot;(&quot;);</div><div class="line">            //获取构造函数的参数列表</div><div class="line">            Class[] paramsType = con.getParameterTypes();</div><div class="line">            for (int i = 0; i &lt; paramsType.length; i++) &#123;</div><div class="line">                if (i != paramsType.length - 1) &#123;</div><div class="line">                    System.out.print(paramsType[i].getSimpleName() + &quot;,&quot;);</div><div class="line">                &#125; else &#123;</div><div class="line">                    System.out.print(paramsType[i].getSimpleName());</div><div class="line">                &#125;</div><div class="line">                System.out.println(&quot;)&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static void main(String args[]) &#123;</div><div class="line">        //ClassUtil.getMethodsMessage(&quot;123&quot;);</div><div class="line">        Integer num = 1;</div><div class="line">        //ClassUtil.getFieldMessage(num);</div><div class="line">        ClassUtil.getConMessage(num);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/27/数据结构/2017-05-27-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1637,380 +1968,6 @@ public void testUser() throws Exception {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/11/hibernate/2017-05-11/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="glinlf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="管弦丝竹，余音袅袅">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/11/hibernate/2017-05-11/" itemprop="url">
-                  hibernate学习笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-11T18:35:00+08:00">
-                2017-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hibernate/" itemprop="url" rel="index">
-                    <span itemprop="name">hibernate</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/11/hibernate/2017-05-11/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/05/11/hibernate/2017-05-11/" itemprop="commentCount">0</span> comments
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="hibernate学习笔记"><a href="#hibernate学习笔记" class="headerlink" title="hibernate学习笔记"></a>hibernate学习笔记</h1><p>1.Hibernate里不对对象或集合对象重载toString方法，不然编译错误 。Stackoverflow错误 栈溢出</p>
-<p>2.什么是维护关联关系：<br>一对多时候   设置外键的值<br>多对多时候    就是插入或删除中间表的记录</p>
-<p>3对象的状态：</p>
-<p>临时状态：<br>    与数据库没有对应，跟Session没有关联。<br>    一般是新new出的对象。</p>
-<p>持久化状态：<br>    对象在Session的管理之中，最终会有对应的数据库记录。<br>    特点：<br>        a，有OID<br>        b，对对象的修改会同步到数据库。</p>
-<p>游离状态：<br>    数据库中有对应记录，但对象不在Session管理之中。<br>    修改此状态对象时数据库不会有变化。</p>
-<p>4.主键id的生成</p>
-<!-- id元素用于映射主键。子元素generator是用于指定主键生成策略的。-->
-<pre><code>&lt;id name=&quot;id&quot;&gt;
-</code></pre><!-- identity：使用数据库的自动增长策略，不是所有数据库都支持，比如oracle就不支持 <generator class="identity"/>-->
-<!-- sequence：在 DB2，PostgreSQL，Oracle，SAP DB，McKoi 中使用序列（sequence）在使用Oracle数据库时可以使用这一个<generator class="sequence"/>-->
-<!-- hilo，使用高低位算法生成主键值。只需要一张额外表，所有的数据都支持。
-            <generator class="hilo">
-                <param name="table">hi_value</param>
-                <param name="column">next_value</param>
-                <param name="max_lo">100</param>
-            </generator>
--->
-<!-- 根据底层数据库的能力选择 identity、sequence 或者 hilo中的一个。
-<generator class="native"></generator>
--->
-<!-- increment：由Hibernate维护的自动增长。先查询当前最大的id值，再加1使用，不推荐使用，因为在多线程下会问题。
-            <generator class="increment"></generator>
--->
-<!-- assigned：手工指定主键值 
-<generator class="assigned"></generator>
--->
-<!-- uuid：由Hibernate自动生成UUID并指定为主键值。  -->
-<generator class="uuid"></generator><br><br><br><br>5.数据库sql的四个级别：<br>读未提交             1        0001<br>读已提交             2        0010<br>可重复度             4        0100<br>串行化（不可并发）   8        1000<br><br>6.一对一：<br><br>外键约束 + 唯一性约束<br><br>比较特殊只有有外键方的一方才能维护关联关系<br>所有解除关联是，没外键的一方解除无效。<br><br>基于外键的一对一<br><br>基于主键的一对一<br><br><!-- 当使用基于主键的一对一映射时，有外键方的主键生成策略一定要是foreign。参数property：生成主键值时所根据的对象。--><br>            <generator class="foreign"><br>                <param name="property">person<br>            </generator>
-
-<ol>
-<li>在having中不能使用列别名，order by 可以用</li>
-</ol>
-<p>8.java中为什么要给类使用代理，有什么好处</p>
-<p><a href="http://www.iteye.com/problems/15304" target="_blank" rel="external">http://www.iteye.com/problems/15304</a></p>
-<p>9.懒加载：</p>
-<pre><code>也叫延迟加载，不是在执行获取操作时马上生成SQL，而是在第一次使用时生成SQL。
-分成两种：
-    类级别的：
-        &lt;class ... lazy=&quot;true/false&quot;&gt;
-    属性级别的：
-        &lt;set/list/map/bag ... lazy=&quot;...&quot;&gt;
-        &lt;many-to-one ... lazy=&quot;...&quot;&gt;
-        &lt;one-to-one ... lazy=&quot;...&quot;&gt;
-在使用懒加载特性时，可能会有LazyInitializationException异常：
-    原因：   
-        真正的去获取数据时，Session已经没有了。
-    解决办法：
-        方式一：让Session在真正加载后再关闭。
-        方式二：或是在Sessoin关闭前执行Hibernate.initialize(department.getEmployees());
-</code></pre><p>extra策略：（加强懒加载）  注意！！！<br>与 lazy=“true” 类似. 主要区别是增强延迟检索策略能进一步延迟 Customer 对象的 orders 集合代理实例的初始化时机：<br>•    当程序第一次访问 orders 属性的 iterator() 方法时, 会导致 orders 集合代理类实例的初始化<br>•    当程序第一次访问 order 属性的 size(), contains() 和 isEmpty() 方法时, Hibernate 不会初始化 orders 集合类的实例,<br>仅通过特定的 select 语句查询必要的信息, 不会检索所有的 Order 对象</p>
-<p>10.缓存是按id来查询的！  （使用id获得对象 才有效）<br>一级缓存  相对于类对象，<br>二级缓存  相对于sessionfactory，应用级别的缓存。在session查询数据库前的缓存</p>
-<p>注意！！！<br>  对于集合里的二级缓存，不仅要声明此时对象里的集合属性要二级缓存，而且集合里的对应类型对象也要声明是二级缓存。这样才能实现二级缓存的效果！<br>不然的话虽然第一次查询这个集合里的所有数据，第二次查询是集合里的对象所对应的属性还是要再按照其自身的id依次查询（生成对个sql语句），不好。</p>
-<p>缓存一般使用在load和get方法<br>query.list()查询方法默认不使用缓存。就算hql语句后又where id=。。。都不行。<br>1.如果要使用query.list()那么要使用迭代器 iterator()；不过有n+1次查询问题，不常用！！！<br>2.也可以使用 .setCacheable(true)// 是否使用查询缓存，需要在hibernate.cfg.xml中开启查询缓存才行(不过hql条件要一致)</p>
-<pre><code>1. select new list(p.name, p.address) from Person as p ;
-</code></pre><p>select将选择出来的属性存入一个List对象中</p>
-<p>select new ClassTest(p.name, p.address) from Person as p;<br>select将选择出来的属性封装成对象,前提是ClassTest支持p.name, p.address的构造函数,</p>
-<p>select new map(p.name as personName) from Person as p ;<br>select将选中的表达式命名为别名,这种用法与new map()结合,选择出来的是Map结构,<br>以personName为key,将实际选择出来的值作为value</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/10/java/java数据类型/2017-05-10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="glinlf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="管弦丝竹，余音袅袅">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/10/java/java数据类型/2017-05-10/" itemprop="url">
-                  java的基本数据类型和引用类型
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-10T11:48:00+08:00">
-                2017-05-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/10/java/java数据类型/2017-05-10/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/05/10/java/java数据类型/2017-05-10/" itemprop="commentCount">0</span> comments
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="java的基本数据类型和引用类型"><a href="#java的基本数据类型和引用类型" class="headerlink" title="java的基本数据类型和引用类型"></a>java的基本数据类型和引用类型</h1><p>   基本类型：简单数据类型是不能简化的、内置的数据类型、由编程语言本身定义，它表示了真实的数字、字符和整数。<br>　引用数据类型：Java语言本身不支持C++中的结构（struct）或联合（union）数据类型，它的复合数据类型一般都是通过类或接口进行构造，类提供了捆绑数据和方法的方式，同时可以针对程序外部进行信息隐藏</p>
-<h2 id="一、8种基本基本数据类型（分布尔类型和数值类型）。"><a href="#一、8种基本基本数据类型（分布尔类型和数值类型）。" class="headerlink" title="一、8种基本基本数据类型（分布尔类型和数值类型）。"></a>一、8种基本基本数据类型（分布尔类型和数值类型）。</h2><p>1、4种整型<br>    byte       1字节           -128——127<br>    short      2 字节         -32,768 —— 32,767<br>    int          4 字节          -2,147,483,648 ——            2,147,483,647（超过20亿）<br>    long       8 字节  -9,223,372,036,854,775,808——9,223,372,036854,775,807<br>    注释：java中所有的数据类所占据的字节数量与平台无关，java也没有任何无符号类型<br>2、 2种浮点类型<br>    float      4 字节         32位IEEE 754单精度（有效位数 6 – 7位）<br>    double   8 字节         64位IEEE 754双精度（有效位数15位）<br>3、1种Unicode编码的字符单元<br>    char      2 字节          整个Unicode字符集<br>4、1种真值类型<br>   boolean    1 位             true或者false </p>
-<p>##二、种引用类型<br>类class<br>接口interface<br>数组array </p>
-<p>##三、Java数据类型在内存中的存储：<br>  给变量赋值前需要先确定变量的类型，确定了变量的类型，即确定了数据需分配内存空间的大小，数据在内存的存储方式。<br>1）基本数据类型的存储原理：所有的简单数据类型不存在“引用”的概念，基本数据类型都是直接存储在内存中的内存栈上的，数据本身的值就是存储在栈空间里面，而Java语言里面八种数据类型是这种存储模型；</p>
-<p>2）引用类型的存储原理:引用类型继承于Object类（也是引用类型）都是按照Java里面存储对象的内存模型来进行数据存储的，使用Java内存堆和内存栈来进行这种类型的数据存储，简单地讲，“引用”是存储在有序的内存栈上的（存储对象地址），而对象本身（实例化后的对象）的值存储在内存堆上的；</p>
-<p>区别:基本数据类型和引用类型的区别主要在于基本数据类型是分配在栈上的，而引用类型是分配在堆上的()（需要java中的栈、堆概念）</p>
-<p>四、“==”和equal()对数据类型的分析:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">eg1:定义两个String对象（String不是基本数据类型）</div><div class="line">//String是一个特殊的包装类数据。可以用以下两种方式创建：</div><div class="line">//String str = new String(“abc”)；String str = “abc”;</div><div class="line">String a=&quot;abc&quot;;//栈中的a引用变量指向JVM运行时数据区区域方法区的常量池中的“abc”。</div><div class="line">String b=&quot;abc&quot;;//栈中的b引用变量也指向方法区中的常量池中的&quot;abc&quot;，和a指向的地址一样</div><div class="line">String c = new String(&quot;abc&quot;); </div><div class="line">//new一个新的String实例对象，引用变量c指向实例化对象new String(&quot;abc&quot;)的地址，该实例化对象存储在堆中[ **实际该地址指针（地址存在堆中）指向此对象类型数据（存在方法区中数据值）即abc**]，这和存在常量池的“abc”值得地址不一样。</div><div class="line"></div><div class="line">if(a==b)&#123;</div><div class="line">System.out.println(&quot;a==b&quot;);</div><div class="line">&#125;else&#123;</div><div class="line">System.out.println(&quot;a!=b&quot;);&#125;</div><div class="line">System.out.printLn(a==c)</div></pre></td></tr></table></figure></p>
-<p>结果：<br>程序输出a==b<br>           flase<br>原因:a和b引用变量指向的地址的是相同的，a==b比较的是两个引用变量所指向的地址。<br>        a和c引用变量指向的地址的是不相同的，a指向常量区中的abc，c指向新开辟在堆内存中的String对象实例中的abc实例对象中数据值得地址；两个地址不同，==比较返回false。<br>        <a href="">images</a><br><img src="~/12-58-16.jpg" alt="images"></p>
-<p><img src="~/12-56-47.jpg" alt="images"><br><a href="http://www.cnblogs.com/gw811/archive/2012/10/18/2730117.html" target="_blank" rel="external">参考</a><br>eg2：定义两个基本数据类型</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">int a=4;  //栈中的a引用变量指向方法区中的常量池中的4</div><div class="line">int b=4; //栈中的b引用变量也指向方法区中的常量池中的4</div><div class="line">if(a==b)&#123;</div><div class="line">System.out.println(&quot;a==b&quot;);</div><div class="line">&#125;</div><div class="line">else&#123;</div><div class="line">    System.out.println(&quot;a!=b&quot;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>结果：<br>输出：a==b<br>原因：a和b指向同一个常量区中常量4的地址。==比较两者地址相等。</p>
-<p>不管是引用类型或基本数据类型使用“==”比较，实际上他们都先在栈空间创建了一个各自的变量引用如int a=1 或String b 等，并比较他们指向的地址的值；<br>    如果给基本数据类型赋值，实际是先将在方法区中的常量区中查找是否存在值1的地址（该值有一个唯一的地址），如果存在则将a指向该地址；不存在那么在常量区新建一个值为1的空间，并将该值得地址赋值给a。如果重新给a赋值如：a = 2，同理将a指向的地址改为常量区中值为2的地址。注意 int c =1，代表a和b指向同一个地址（常量区中1的地址）。<br>    如果使用new 实例化对象，对象的引用变量指向的是在堆中该对象实例化的对象地址；<br>   equal()方法比较的是引用变量指向地址最终指向的值。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2060,7 +2017,7 @@ public void testUser() throws Exception {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2082,7 +2039,7 @@ public void testUser() throws Exception {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
